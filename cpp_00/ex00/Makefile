@@ -1,0 +1,1 @@
+# c++ /  -Wall -Wextra -Werroe  -std=c++98
