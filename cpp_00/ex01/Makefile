@@ -6,14 +6,17 @@ COLOR_BROWN = \033[0;33m
 COLOR_END = \033[0m
 
 # Nom du fichier exécutable
-NAME = megaphone
+NAME = PhoneBook
 
 # Compilateur
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Fichier source
-SRC = megaphone.cpp
+SRC =	PhoneBook.cpp \
+		Contact.cpp \
+		main.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
 # Règle principale
