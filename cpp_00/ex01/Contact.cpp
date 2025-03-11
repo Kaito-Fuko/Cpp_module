@@ -150,26 +150,25 @@ void Contact::setContact()
 	setDarkestSecret();
 }
 
-std::string	printTenCarac(std::string str)
+void	printTenCarac(std::string str)
 {
-	std::string input;
-	if (str.length() <= 10)
-		return (str);
+	std::cout << "|";
+	if (str.length() > 10)
+		std::cout << str.substr(0, 9) << ".";
 	else
-	{
-		str[10] = '.';
-		str[11] = '\0';
-		return (str);
-	}
+		std::cout << std::setw(10) << str;
 }
 
 void Contact::displayContact()
 {
 	std::cout << "/------------------------------------------------------\\" << std::endl;
-	std::cout << "|" << printTenCarac(getFirstName()) << "|";
-	std::cout << printTenCarac(getLastName()) << "|" << printTenCarac(getNickname());
-	std::cout << "|" << printTenCarac(getPhoneNumber()) << "|";
-	std::cout << printTenCarac(getDarkestSecret()) << "|" << std::endl;
+	std::cout << "|first name| last name|  nickname|    number|    secret|" << std::endl;
+	std::cout << "|------------------------------------------------------|" << std::endl;
+	printTenCarac(getFirstName());
+	printTenCarac(getLastName());
+	printTenCarac(getNickname());
+	printTenCarac(getPhoneNumber());
+	printTenCarac(getDarkestSecret());
+	std::cout << "|" << std::endl;
 	std::cout << "\\------------------------------------------------------/" << std::endl;
-
 }

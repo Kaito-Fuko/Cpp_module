@@ -2,6 +2,7 @@
 #define CONTACT_H
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <cctype>
 
