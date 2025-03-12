@@ -1,0 +1,10 @@
+addContact()
+{
+    book[index] = setContact();
+    if (index == 3)
+        index(0);
+    else
+        index++;
+    if (nbcontacts < 4)
+        nbcontacts++;
+}

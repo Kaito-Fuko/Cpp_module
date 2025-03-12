@@ -1,5 +1,10 @@
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-// void addContact()
-// {
-// }
+void PhoneBook::addContact()
+{
+    Contact newC;
+
+    newC.setContact();
+    Book[index] = newC;
+}
