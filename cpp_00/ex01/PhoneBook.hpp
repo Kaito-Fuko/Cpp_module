@@ -1,6 +1,7 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
+// # include <stdlib>
 # include <iostream>
 # include <string>
 # include "Contact.hpp"
@@ -12,8 +13,11 @@ class PhoneBook
 		int 	index;
 		int 	nbContacts;
 	public:
-		// void addContact();
-		// void searchContact();
+		PhoneBook();
+		~PhoneBook();
+
+		void addContact();
+		void searchContact();
 };
 
 #endif

@@ -2,12 +2,12 @@
 
 Contact::Contact()
 {
-	std::cout << "contact is create" << std::endl;
+	// std::cout << "contact is create" << std::endl;
 }
 
 Contact::~Contact()
 {
-	std::cout << "contact is destroy" << std::endl;
+	// std::cout << "contact is destroy" << std::endl;
 }
 
 std::string	Contact::getFirstName() const
@@ -65,7 +65,11 @@ void Contact::setFirstName()
 	while (1)
 	{
 		std::cout << "Entrez le prenom : ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input)))
+		{
+			std::cin.clear();
+			return ;
+		}
 		if (isAlphaString(input) && !input.empty())
 		{
 			firstName = input;
@@ -81,7 +85,11 @@ void Contact::setLastName()
 	while (1)
 	{
 		std::cout << "Entrez le nom de famille : ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input)))
+		{
+			std::cin.clear();
+			return ;
+		}
 		if (isAlphaString(input) && !input.empty())
 		{
 			lastName = input;
@@ -97,7 +105,11 @@ void Contact::setNickname()
 	while (1)
 	{
 		std::cout << "Entrez le surnom : ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input)))
+		{
+			std::cin.clear();
+			return ;
+		}
 		if (isAlnumString(input) && !input.empty())
 		{
 			nickname = input;
@@ -113,7 +125,11 @@ void Contact::setPhoneNumber()
 	while (1)
 	{
 		std::cout << "Entrez le numero de telephone : ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input)))
+		{
+			std::cin.clear();
+			return ;
+		}
 		if (isDigitString(input) && !input.empty())
 		{
 			phoneNumber = input;
@@ -129,7 +145,11 @@ void Contact::setDarkestSecret()
 	while (1)
 	{
 		std::cout << "Entrez son secret le plus sombre : ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input)))
+		{
+			std::cin.clear();
+			return ;
+		}
 		if (!input.empty())
 		{
 			darkestSecret = input;
@@ -150,25 +170,11 @@ void Contact::setContact()
 	setDarkestSecret();
 }
 
-void	printTenCarac(std::string str)
-{
-	std::cout << "|";
-	if (str.length() > 10)
-		std::cout << str.substr(0, 9) << ".";
-	else
-		std::cout << std::setw(10) << str;
-}
-
 void Contact::displayContact()
 {
-	std::cout << "/------------------------------------------------------\\" << std::endl;
-	std::cout << "|first name| last name|  nickname|    number|    secret|" << std::endl;
-	std::cout << "|------------------------------------------------------|" << std::endl;
-	printTenCarac(getFirstName());
-	printTenCarac(getLastName());
-	printTenCarac(getNickname());
-	printTenCarac(getPhoneNumber());
-	printTenCarac(getDarkestSecret());
-	std::cout << "|" << std::endl;
-	std::cout << "\\------------------------------------------------------/" << std::endl;
+	std::cout << "Prenom : " << getFirstName() << std::endl;
+	std::cout << "Nom de famille : " << getLastName() << std::endl;
+	std::cout << "Surnom : " << getNickname() << std::endl;
+	std::cout << "Numero de telephone : " << getPhoneNumber() << std::endl;
+	std::cout << "Secret : " << getDarkestSecret() << std::endl;
 }

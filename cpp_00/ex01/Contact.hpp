@@ -5,6 +5,7 @@
 # include <iomanip>
 # include <string>
 # include <cctype>
+# include <cstdlib>
 
 class Contact
 {
@@ -34,5 +35,7 @@ class Contact
 		void setContact();
 		void displayContact();
 };
+
+bool	isDigitString(const std::string& str);
 
 #endif

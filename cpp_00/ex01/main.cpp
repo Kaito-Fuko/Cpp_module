@@ -3,19 +3,24 @@
 
 int main()
 {
-	// PhoneBook phoneBook;
+	PhoneBook phoneBook;
 	Contact contact;
 	std::string command;
 
 	while (1)
 	{
-		std::getline(std::cin, command);
+		std::cout << "Entrez ADD, SEARCH ou EXIT : ";
+		if (!(std::getline(std::cin, command)))
+		{
+			std::cin.clear();
+			return (1);
+		}
 		if (command == "ADD")
-			contact.setContact();
-		// 	phoneBook.addContact();
+			phoneBook.addContact();
+			// contact.setContact();
 		else if (command == "SEARCH")
-			contact.displayContact();
-		// 	phoneBook.searchContact();
+			phoneBook.searchContact();
+			// contact.displayContact();
 		else if (command == "EXIT")
 			break ;
 	}
