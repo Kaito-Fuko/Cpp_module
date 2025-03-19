@@ -12,24 +12,37 @@ NAME = Account
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Fichier source
-SRC =	tests.cpp\
-		Account.cpp
-		
+# Dossiers
+SRC_DIR = src
+OBJ_DIR = obj
+INC_DIR = include
 
-OBJ = $(SRC:.cpp=.o)
+# Fichiers sources
+SRC = $(SRC_DIR)/Account.cpp \
+      $(SRC_DIR)/tests.cpp \
+
+OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
+
+# Création du dossier obj si nécessaire
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CXX) $(CXXFLAGS) -I$(INC_DIR) -c $< -o $@
 
 # Règle principale
 all: $(NAME)
 
 # Compilation de l'exécutable
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(COLOR_GREEN)$(COLOR_BOLD)Compilation de $(NAME) terminée.$(COLOR_END)"
+	$(CXX) $(CXXFLAGS) -I$(INC_DIR) $(OBJ) -o $(NAME)
+	@echo "$(COLOR_GREEN)Compilation de $(NAME) terminée.$(COLOR_END)"
+
+# Compilation des fichiers objets
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@$(CXX) $(CXXFLAGS) -I$(INC_DIR) -c $< -o $@
 
 # Nettoyage des fichiers objets
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@echo "$(COLOR_YELLOW)Nettoyage des fichiers objets terminé.$(COLOR_END)"
 
 # Nettoyage complet

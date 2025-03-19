@@ -1,5 +1,5 @@
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include "../include/PhoneBook.hpp"
+#include "../include/Contact.hpp"
 # include <cstdlib>
 # include <sstream>
 

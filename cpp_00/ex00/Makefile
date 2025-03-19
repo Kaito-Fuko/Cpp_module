@@ -12,9 +12,18 @@ NAME = megaphone
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
+# Dossiers
+SRC_DIR = src
+OBJ_DIR = obj
+
 # Fichier source
-SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+SRC = $(SRC_DIR)/megaphone.cpp
+OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
+
+# Création du dossier obj si nécessaire
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Règle principale
 all: $(NAME)
@@ -26,7 +35,7 @@ $(NAME): $(OBJ)
 
 # Nettoyage des fichiers objets
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@echo "$(COLOR_YELLOW)Nettoyage des fichiers objets terminé.$(COLOR_END)"
 
 # Nettoyage complet
