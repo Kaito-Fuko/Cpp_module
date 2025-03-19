@@ -2,10 +2,7 @@
 #define ZOMBIE_H
 
 # include <iostream>
-# include <iomanip>
-# include <string>
-# include <cctype>
-# include <cstdlib>
+# include <sstream>
 
 class Zombie
 {
@@ -13,9 +10,10 @@ class Zombie
 		std::string	name;
 	
 	public:
-		Zombie(std::string name);
+		Zombie();
 		~Zombie();
 
+		void setZombie(std::string name);
 		void announce();	
 };
 
