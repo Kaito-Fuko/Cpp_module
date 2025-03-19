@@ -10,3 +10,8 @@ HumanA::~HumanA()
 {
 	std::cout << "HumanA is died" << std::endl;
 }
+
+void	HumanA::attack()
+{
+	std::cout << "HumanA attack" << std::endl;
+}
