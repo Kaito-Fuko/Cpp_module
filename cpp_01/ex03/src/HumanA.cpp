@@ -3,7 +3,8 @@
 
 HumanA::HumanA(std::string name, Weapon weapon)
 {
-	std::cout << name << " is born with weapon" << weapon.getType() << std::endl;
+	std::cout << name << " is born with " << weapon.getType() << std::endl;
+	this->weapon = weapon.getType();
 }
 
 HumanA::~HumanA()
@@ -13,5 +14,5 @@ HumanA::~HumanA()
 
 void	HumanA::attack()
 {
-	std::cout << "HumanA attack" << std::endl;
+	std::cout << "HumanA attack with " << weapon << std::endl;
 }
