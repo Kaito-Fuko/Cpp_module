@@ -10,6 +10,7 @@ int cerror(char *str, std::string name, char *end)
 void	replaceFile(std::ifstream &infile, std::ofstream &outfile, std::string s1,std::string s2)
 {
 	std::cout << "bonjour" << std::endl;
+	std::cout << std::endl;
 }
 
 int main(int ac, char **av)
