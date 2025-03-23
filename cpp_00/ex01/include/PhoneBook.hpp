@@ -12,6 +12,7 @@ class PhoneBook
 		Contact Book[8];
 		int 	index;
 		int 	nbContacts;
+
 	public:
 		PhoneBook();
 		~PhoneBook();

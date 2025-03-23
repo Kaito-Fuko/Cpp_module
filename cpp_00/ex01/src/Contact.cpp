@@ -1,14 +1,10 @@
 #include "../include/Contact.hpp"
 
 Contact::Contact()
-{
-	// std::cout << "contact is create" << std::endl;
-}
+{}
 
 Contact::~Contact()
-{
-	// std::cout << "contact is destroy" << std::endl;
-}
+{}
 
 std::string	Contact::getFirstName() const
 {	

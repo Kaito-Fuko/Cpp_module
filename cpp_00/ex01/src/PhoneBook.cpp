@@ -4,14 +4,10 @@
 # include <sstream>
 
 PhoneBook::PhoneBook() : index(0), nbContacts(0)
-{
-
-}
+{}
 
 PhoneBook::~PhoneBook()
-{
-
-}
+{}
 
 void PhoneBook::addContact()
 {
@@ -32,14 +28,6 @@ void	printTenCarac(std::string str)
 	else
 		std::cout << std::setw(10) << str;
 }
-
-// bool	isDigitString(const std::string& str)
-// {
-// 	for (int i = 0;str[i]; i++)
-// 		if (!std::isdigit(str[i]) && str[i] != ' ')
-// 			return (false);
-// 	return (true);
-// }
 
 void PhoneBook::searchContact()
 {

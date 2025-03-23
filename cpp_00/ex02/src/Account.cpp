@@ -8,15 +8,13 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-
 Account::Account(int initial_deposit)
 {
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals= 0;
 	this->_amount = initial_deposit;
 	Account::_totalAmount += this->_amount;
-	this->_accountIndex = Account::_nbAccounts;
-	Account::_nbAccounts++;
+	this->_accountIndex = Account::_nbAccounts++;
 
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << " ; " << "amount" << this->checkAmount() << " ; " << "created" << std::endl;
