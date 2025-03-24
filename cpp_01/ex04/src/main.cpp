@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-int cerror(char *str, std::string name, char *end)
+int cerror(std::string str, std::string name, std::string end)
 {
 	std::cerr << str << name << end << std::endl;
 	return 1;
@@ -9,14 +9,30 @@ int cerror(char *str, std::string name, char *end)
 
 void	replaceFile(std::ifstream &infile, std::ofstream &outfile, std::string s1,std::string s2)
 {
-	std::cout << "bonjour" << std::endl;
-	std::cout << std::endl;
+	std::string	line;
+	
+	while (std::getline(infile, line))
+	{
+        size_t pos = 0;
+	
+        while ((pos = line.find(s1, pos)) != std::string::npos)
+        {
+            line.erase(pos, s1.length());
+            line.insert(pos, s2);
+            pos += s2.length();
+        }
+    
+		outfile << line << std::endl;
+	}
 }
 
 int main(int ac, char **av)
 {
 	if (ac != 4)
-		return (cerror("error: wrong numbers of arguments", NULL, NULL));
+	{
+		std::cerr << "error: wrong numbers of arguments" << std::endl;
+		return (1);
+	}
 
 	std::string filename = av[1];
 	std::string s1 = av[2];
@@ -25,11 +41,11 @@ int main(int ac, char **av)
 	if (s1.empty())
 		return cerror("error: s1 is empty", NULL, NULL);
 	
-	std::ifstream	infile(filename);
+	std::ifstream	infile(filename.c_str());
 	if (!infile)
 		return cerror("error: ", filename, " is invalid");
 
-	std::ofstream	outfile(filename + ".replace");
+	std::ofstream	outfile((filename + ".replace").c_str());
 	if (!outfile)
 		return cerror("error: ", filename, ".replace not created");
 	
