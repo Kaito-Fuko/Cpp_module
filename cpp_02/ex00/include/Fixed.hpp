@@ -6,8 +6,8 @@
 class	Fixed
 {
 	private:
-		int 				entier;
-		static const int	entier2;
+		int 				value;
+		static const int	valueBits = 8;
 
 	public:
 		Fixed();
@@ -15,8 +15,8 @@ class	Fixed
 		Fixed& operator=(const Fixed& other);
 		~Fixed();
 
-		int		getFixed() const;
-		void	setFixed(int entier);
+		int		getRawBits() const;
+		void	setRawBits(int value);
 };
 
 #endif
