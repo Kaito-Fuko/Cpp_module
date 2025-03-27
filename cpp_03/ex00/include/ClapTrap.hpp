@@ -1,15 +1,15 @@
 #ifndef CLAPTREP_HPP
 # define CLAPTREP_HPP
 
-#include <iostream>
+# include <iostream>
 
 class ClapTrap
 {
 	private:
 		std::string name;
-		int			pv;
-		int			e;
-		int			atk;
+		unsigned int			pv;
+		unsigned int			e;
+		unsigned int			atk;
 
 	public:
 		ClapTrap();
