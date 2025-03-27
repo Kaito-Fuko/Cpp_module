@@ -1,3 +1,4 @@
+
 #include "../include/Fixed.hpp"
 
 Fixed::Fixed(): value(0)
@@ -93,25 +94,25 @@ Fixed::~Fixed()
 	// std::cout << "Destructor called" << std::endl;
 }
 
-// static Fixed& min(Fixed& a, Fixed& b)
-// {
-// 	return (a.getRawBits() < b.getRawBits()) ? a : b;
-// }
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
+{
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
+}
 
-// static const Fixed& min(const Fixed& a, const Fixed& b)
-// {
-// 	return (a.getRawBits() < b.getRawBits()) ? a : b;
-// }
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
+}
 
-// static Fixed& max(Fixed& a, Fixed& b)
-// {
-// 	return (a.getRawBits() > b.getRawBits()) ? a : b;
-// }
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
+}
 
-// static const Fixed& max(const Fixed& a, const Fixed& b)
-// {
-// 	return (a.getRawBits() > b.getRawBits()) ? a : b;
-// }
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
+}
 
 int	Fixed::getRawBits() const
 {
