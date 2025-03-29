@@ -3,22 +3,30 @@
 ScavTrap::ScavTrap(): ClapTrap("Default")
 {
 	pv = 100;
-    e = 50;
-    atk = 20;
-    std::cout << "ScavTrap " << name << " created!" << std::endl;
+	e = 50;
+	atk = 20;
+	std::cout << "\033[93m" << "ScavTrap Default created!" << "\033[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	pv = 100;
-    e = 50;
-    atk = 20;
-    std::cout << "ScavTrap " << name << " created!" << std::endl;
+	e = 50;
+	atk = 20;
+	std::cout << "\033[93m" << "ScavTrap " << name << " created!" << "\033[0m" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other):  ClapTrap(other)
+{
+	pv = other.pv;
+	e = other.e;
+	atk = other.atk;
+	std::cout << "\033[93m" << "ScavTrap" << other.name << "Copy created." << "\033[0m" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\033[91m" << "ScavTrap Destructor called." << "\033[0m" << std::endl;
+	std::cout << "\033[93m" << "ScavTrap " << name << " destroyed." << "\033[0m" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)
@@ -32,4 +40,9 @@ void	ScavTrap::attack(const std::string& target)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << " doesn't have enough energy for attack." << "\033[0m" << std::endl;
 	else if (this->getPv() <= 0)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << "doesn't have enough health point for attack." << "\033[0m" << std::endl;
+}
+
+void	ScavTrap::guardGate()
+{
+	std::cout << "\033[93m" << "ScavTrap is now in Gate keeper mode." << "\033[0m" << std::endl;
 }

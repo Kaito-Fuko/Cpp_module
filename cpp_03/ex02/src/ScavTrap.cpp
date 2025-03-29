@@ -3,17 +3,25 @@
 ScavTrap::ScavTrap(): ClapTrap("Default")
 {
 	pv = 100;
-    e = 50;
-    atk = 20;
-    std::cout << "ScavTrap " << name << " created!" << std::endl;
+	e = 50;
+	atk = 20;
+	std::cout << "ScavTrap " << name << " created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	pv = 100;
-    e = 50;
-    atk = 20;
-    std::cout << "ScavTrap " << name << " created!" << std::endl;
+	e = 50;
+	atk = 20;
+	std::cout << "ScavTrap " << name << " created!" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other):  ClapTrap(other)
+{
+	pv = 100;
+	e = 50;
+	atk = 20;
+	std::cout << "\033[0;33m" << "Copy constructor called." << "\033[0m" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -32,4 +40,9 @@ void	ScavTrap::attack(const std::string& target)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << " doesn't have enough energy for attack." << "\033[0m" << std::endl;
 	else if (this->getPv() <= 0)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << "doesn't have enough health point for attack." << "\033[0m" << std::endl;
+}
+
+void	ScavTrap::guardGate()
+{
+	std::cout << "\033[93m" << "ScavTrap is now in Gate keeper mode." << "\033[0m" << std::endl;
 }

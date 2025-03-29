@@ -1,0 +1,35 @@
+# include "../include/DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap("Default"), FragTrap("Default"), name("Default")
+{
+	pv = FragTrap::pv;
+	e = ScavTrap::e;
+	atk = FragTrap::atk;
+	std::cout << "\033[1;34m" << "DiamondTrap Default created." << "\033[0m" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name), name(_name)
+{
+	pv = FragTrap::pv;
+	e = ScavTrap::e;
+	atk = FragTrap::atk;
+	std::cout << "\033[1;34m" << "DiamondTrap " << _name << " created." << "\033[0m" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other.name + "_clap_name"), ScavTrap(other), FragTrap(other), name(other.name)
+{
+	pv = other.pv;
+	e = other.e;
+	atk = other.atk;
+	std::cout << "\033[1;34m" << "DiamondTrap " << other.name << " copy created." << "\033[0m" << std::endl;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "\033[1;34m" << "DiamondTrap " << name << " destroyed." << "\033[0m" << std::endl;
+}
+
+void	DiamondTrap::WhoAmI()
+{
+	std::cout << "\033[1;34m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
+}
