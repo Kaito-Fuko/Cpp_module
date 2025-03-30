@@ -24,7 +24,8 @@ SRC = $(SRC_DIR)/main.cpp \
 	  $(SRC_DIR)/Cat.cpp \
 	  $(SRC_DIR)/WrongAnimal.cpp \
 	  $(SRC_DIR)/WrongDog.cpp \
-	  $(SRC_DIR)/WrongCat.cpp
+	  $(SRC_DIR)/WrongCat.cpp \
+	  $(SRC_DIR)/Brain.cpp
 
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
