@@ -29,6 +29,13 @@ ScavTrap::~ScavTrap()
 	std::cout << "\033[93m" << "ScavTrap " << name << " destroyed." << "\033[0m" << std::endl;
 }
 
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	if (this != &other)
+		this->name = other.name;
+	return *this;
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->getE() > 0 && this->getPv() > 0)

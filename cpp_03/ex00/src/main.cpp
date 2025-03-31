@@ -55,5 +55,5 @@ int main()
 	bob.print_Trap();
 	jim.print_Trap();
 	rien.print_Trap();
-	std::cout << std::endl;	
+	std::cout << std::endl;
 }
