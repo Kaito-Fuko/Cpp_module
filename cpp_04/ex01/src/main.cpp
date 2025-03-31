@@ -7,37 +7,37 @@
 #include "../include/Brain.hpp"
 
 int main() {
-    std::cout << "\n=== TEST AVEC ANIMAL, DOG, CAT ===" << std::endl;
+    std::cout << "\033[1m" << "\n=== TEST AVEC ANIMAL, DOG, CAT ===" << "\033[0m" << std::endl;
     const Animal* meta = new Animal();
     const Animal* i = new Cat();
     const Animal* j = new Dog();
 
-    std::cout << "Type de i : " << i->getType() << std::endl;
-    std::cout << "Type de j : " << j->getType() << std::endl;
+    std::cout << "\033[92m" << "Type de i : " << i->getType() << "\033[0m" << std::endl;
+    std::cout << "\033[33m" << "Type de j : " << j->getType() << "\033[0m" << std::endl;
 
-    std::cout << "Son de i : "; i->makeSound();
-    std::cout << "Son de j : "; j->makeSound();
-    std::cout << "Son de meta : "; meta->makeSound();
+    std::cout << "\033[92m" << "Son de i : " << "\033[0m"; i->makeSound();
+    std::cout << "\033[33m" << "Son de j : " << "\033[0m"; j->makeSound();
+    std::cout << "Son de meta : " << "\033[0m"; meta->makeSound();
 
     delete meta;
     delete i;
     delete j;
 
-    std::cout << "\n=== TEST AVEC BRAIN DANS DOG ET CAT ===" << std::endl;
+    std::cout << "\033[1m" << "\n=== TEST AVEC BRAIN DANS DOG ET CAT ===" << "\033[0m" << std::endl;
     Dog* dog1 = new Dog();
     dog1->getBrain()->setIdea(0, "Manger");
     dog1->getBrain()->setIdea(1, "Jouer");
-    std::cout << "Idée 0 du chien : " << dog1->getBrain()->getIdea(0) << std::endl;
-    std::cout << "Idée 1 du chien : " << dog1->getBrain()->getIdea(1) << std::endl;
+    std::cout << "\033[33m" << "Idée 0 du chien : " << dog1->getBrain()->getIdea(0) << "\033[0m" << std::endl;
+    std::cout << "\033[33m" << "Idée 1 du chien : " << dog1->getBrain()->getIdea(1) << "\033[0m" << std::endl;
 
     Cat* cat1 = new Cat();
     cat1->getBrain()->setIdea(0, "Dormir");
-    std::cout << "Idée 0 du chat : " << cat1->getBrain()->getIdea(0) << std::endl;
+    std::cout << "\033[92m" << "Idée 0 du chat : " << cat1->getBrain()->getIdea(0) << "\033[0m" << std::endl;
 
     delete dog1;
     delete cat1;
 
-    std::cout << "\n=== TEST AVEC TABLEAU D'ANIMAUX (DOGS & CATS) ===" << std::endl;
+    std::cout << "\033[1m" << "\n=== TEST AVEC TABLEAU D'ANIMAUX (DOGS & CATS) ===" << "\033[0m" << std::endl;
     const int size = 6;
     Animal* animals[size];
     
@@ -47,7 +47,7 @@ int main() {
         animals[i] = new Cat();
     
     for (int i = 0; i < size; i++) {
-        std::cout << "Animal " << i << " de type " << animals[i]->getType() << " fait : ";
+        std::cout << "Animal " << i << " de type " << animals[i]->getType() << " fait : " << "\033[0m";
         animals[i]->makeSound();
     }
     

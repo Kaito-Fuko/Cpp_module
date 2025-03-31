@@ -3,19 +3,19 @@
 Dog::Dog(): Animal()
 {
 	brain = new Brain();
-	std::cout << "Dog Default created" << std::endl;
+	std::cout << "\033[33m" << "Dog Default created" << "\033[0m" << std::endl;
 }
 
 Dog::Dog(const Dog& other): Animal()
 {
 	brain = new Brain();
-	std::cout << "Dog " << other.type << " copy created" << std::endl;
+	std::cout << "\033[33m" << "Dog " << other.type << " copy created" << "\033[0m" << std::endl;
 }
 
 Dog::~Dog()
 {
 	delete brain;
-	std::cout << "Dog destroyed" << std::endl;
+	std::cout << "\033[33m" << "Dog destroyed" << "\033[0m" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -27,7 +27,7 @@ Dog& Dog::operator=(const Dog& other)
 
 void Dog::makeSound() const
 {
-	std::cout << "Wouaf" << std::endl;
+	std::cout << "\033[33m" << "Wouaf" << "\033[0m" << std::endl;
 }
 
 

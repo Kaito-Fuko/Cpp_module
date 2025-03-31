@@ -2,22 +2,22 @@
 
 WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
-	std::cout << "WrongCat Default created" << std::endl;
+	std::cout  << "\033[92m" << "WrongCat Default created" << "\033[0m" << std::endl;
 }
 
 WrongCat::WrongCat(const std::string _type): WrongAnimal("WrongCat")
 {
-	std::cout << "WrongCat " << _type << " created" << std::endl;
+	std::cout  << "\033[92m" << "WrongCat " << _type << " created" << "\033[0m" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other): WrongAnimal("WrongCat")
 {
-	std::cout << "WrongCat " << other.type << " copy created" << std::endl;
+	std::cout  << "\033[92m" << "WrongCat " << other.type << " copy created" << "\033[0m" << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destroyed" << std::endl;
+	std::cout  << "\033[92m" << "WrongCat destroyed" << "\033[0m" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)
@@ -29,5 +29,5 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 
 void  WrongCat::makeSound() const
 {
-	std::cout << "Wrong Miaou" << std::endl;
+	std::cout  << "\033[92m" << "Wrong Miaou"  << "\033[0m" << std::endl;
 }
