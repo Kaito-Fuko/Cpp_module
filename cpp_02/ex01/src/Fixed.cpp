@@ -22,10 +22,10 @@ Fixed::Fixed(const Fixed& other): value(other.value)
 
 Fixed&	Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->value = other.value;
 	return *this;
+	std::cout << "Copy assignment operator called" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)

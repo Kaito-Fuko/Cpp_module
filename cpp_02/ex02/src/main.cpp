@@ -21,10 +21,10 @@ int main( void )
 	std::cout << "7 " << c << std::endl;
 	std::cout << "8 " << d << std::endl;
 
-	std::cout << a << "/" << c << " " << Fixed::max(a, c) << std::endl;
-	std::cout << a << "/" << c << " " << Fixed::min(a, c) << std::endl;
-	std::cout << b << "/" << d << " " << Fixed::max(b, d) << std::endl;
-	std::cout << b << "/" << d << " " << Fixed::min(b, d) << std::endl;
+	std::cout << a << "/" << c << ": max: " << Fixed::max(a, c) << std::endl;
+	std::cout << a << "/" << c << ": min: " << Fixed::min(a, c) << std::endl;
+	std::cout << b << "/" << d << ": max: " << Fixed::max(b, d) << std::endl;
+	std::cout << b << "/" << d << ": min: " << Fixed::min(b, d) << std::endl;
 
 	return 0;
 }
