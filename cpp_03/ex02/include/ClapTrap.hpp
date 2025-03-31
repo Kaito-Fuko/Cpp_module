@@ -27,6 +27,8 @@ class ClapTrap
 		int	getPv(void);
 		int	getE(void);
 		int	getAtk(void);
+		
+		void	print_Trap();
 };
 
 #endif
