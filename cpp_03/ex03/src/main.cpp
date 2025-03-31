@@ -12,4 +12,5 @@ int main()
 	bob.attack("Krys");
 	jim.attack("Patriracaca");
 	bob.WhoAmI();
+	std::cout << std::endl;
 }

@@ -29,6 +29,13 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "\033[1;34m" << "DiamondTrap " << name << " destroyed." << "\033[0m" << std::endl;
 }
 
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
+{
+	if (this != &other)
+		this->name = other.name;
+	return *this;
+}
+
 void	DiamondTrap::WhoAmI()
 {
 	std::cout << "\033[1;34m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
