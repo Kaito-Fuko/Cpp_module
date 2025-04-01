@@ -8,7 +8,7 @@ Dog::Dog(): Animal()
 
 Dog::Dog(const Dog& other): Animal()
 {
-	brain = new Brain();
+	brain = new Brain(*other.brain);
 	std::cout << "\033[33m" << "Dog " << other.type << " copy created" << "\033[0m" << std::endl;
 }
 

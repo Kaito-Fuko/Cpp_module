@@ -14,7 +14,7 @@ Cat::Cat(const std::string _type): Animal("Cat")
 
 Cat::Cat(const Cat& other): Animal("Cat")
 {
-	brain = new Brain();
+	brain = new Brain(*other.brain);
 	std::cout << "\033[92m" << other.type << " copy created" << "\033[0m" << std::endl;
 }
 
