@@ -10,7 +10,7 @@ int main()
 	std::cout << std::endl;
 
 	bob.attack("Krys");
-	jim.attack("Patriracaca");
+	jim.attack("IronMan");
 	bob.WhoAmI();
 	std::cout << std::endl;
 }
