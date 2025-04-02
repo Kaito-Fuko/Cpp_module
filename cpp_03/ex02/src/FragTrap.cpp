@@ -26,7 +26,7 @@ FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "\033[1m" << "FragTrap Destructor called." << "\033[0m" << std::endl;
+	std::cout << "\033[91m" << "FragTrap Destructor called." << "\033[0m" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)

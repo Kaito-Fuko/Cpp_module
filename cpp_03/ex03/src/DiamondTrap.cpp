@@ -5,7 +5,7 @@ DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap("Default"), 
 	hitPoint = FragTrap::hitPoint;
 	e = ScavTrap::e;
 	AttackDamage = FragTrap::AttackDamage;
-	std::cout << "\033[1;34m" << "DiamondTrap Default created." << "\033[0m" << std::endl;
+	std::cout << "\033[1;36m" << "DiamondTrap Default created." << "\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name), name(_name)
@@ -13,7 +13,7 @@ DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), Sca
 	hitPoint = FragTrap::hitPoint;
 	e = ScavTrap::e;
 	AttackDamage = FragTrap::AttackDamage;
-	std::cout << "\033[1;34m" << "DiamondTrap " << _name << " created." << "\033[0m" << std::endl;
+	std::cout << "\033[1;36m" << "DiamondTrap " << _name << " created." << "\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other.name + "_clap_name"), ScavTrap(other), FragTrap(other), name(other.name)
@@ -21,12 +21,12 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other.name + "_clap
 	hitPoint = other.hitPoint;
 	e = other.e;
 	AttackDamage = other.AttackDamage;
-	std::cout << "\033[1;34m" << "DiamondTrap " << other.name << " copy created." << "\033[0m" << std::endl;
+	std::cout << "\033[1;36m" << "DiamondTrap " << other.name << " copy created." << "\033[0m" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "\033[1;34m" << "DiamondTrap " << name << " destroyed." << "\033[0m" << std::endl;
+	std::cout << "\033[1;36m" << "DiamondTrap " << name << " destroyed." << "\033[0m" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
@@ -38,5 +38,5 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 
 void	DiamondTrap::WhoAmI()
 {
-	std::cout << "\033[1;34m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
+	std::cout << "\033[1;36m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
 }
