@@ -15,13 +15,14 @@ void	replaceFile(std::ifstream &infile, std::ofstream &outfile, std::string s1,s
 	{
         size_t pos = 0;
 	
-        while ((pos = line.find(s1, pos)) != std::string::npos)
+		pos = line.find(s1, pos);
+        while (pos != std::string::npos)
         {
-            line.erase(pos, s1.length());
-            line.insert(pos, s2);
-            pos += s2.length();
+            std::string before = line.substr(0, pos);
+            std::string after = line.substr(pos + s1.length());
+            line = before + s2 + after;
+            pos = line.find(s1, pos + s2.length());
         }
-    
 		outfile << line << std::endl;
 	}
 }

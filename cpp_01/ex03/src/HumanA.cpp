@@ -1,10 +1,9 @@
 #include "../include/HumanA.hpp"
 #include "../include/Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon &_weapon): weapon(_weapon) 
 {
 	std::cout << name << " is born with " << weapon.getType() << std::endl;
-	this->weapon = weapon.getType();
 }
 
 HumanA::~HumanA()
@@ -14,5 +13,5 @@ HumanA::~HumanA()
 
 void	HumanA::attack()
 {
-	std::cout << "HumanA attack with " << weapon << std::endl;
+	std::cout << "HumanA attack with " << weapon.getType() << std::endl;
 }
