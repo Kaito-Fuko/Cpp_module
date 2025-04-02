@@ -19,5 +19,4 @@ std::string	Weapon::getType()
 void	Weapon::setType(std::string weapon)
 {
 	type = weapon;
-	std::cout << type << std::endl;
 }
