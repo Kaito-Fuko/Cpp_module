@@ -8,22 +8,22 @@ Harl::~Harl()
 
 void    Harl::error()
 {
-    std::cout << "error" << std::endl;
+    std::cout << "Error: brain 404." << std::endl;
 }
 
 void    Harl::warning()
 {
-    std::cout << "warning" << std::endl;
+    std::cout << "Warning: brain not found." << std::endl;
 }
 
 void    Harl::info()
 {
-    std::cout << "info" << std::endl;
+    std::cout << "Info: the brain is pink because the blood is red." << std::endl;
 }
 
 void    Harl::debug()
 {
-    std::cout << "debug" << std::endl;
+    std::cout << "Debug: a brain is necessary for this complaint." << std::endl;
 }
 
 void    Harl::complain(std::string level)
