@@ -2,25 +2,25 @@
 
 DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap("Default"), FragTrap("Default"), name("Default")
 {
-	pv = FragTrap::pv;
+	hitPoint = FragTrap::hitPoint;
 	e = ScavTrap::e;
-	atk = FragTrap::atk;
+	AttackDamage = FragTrap::AttackDamage;
 	std::cout << "\033[1;34m" << "DiamondTrap Default created." << "\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name), name(_name)
 {
-	pv = FragTrap::pv;
+	hitPoint = FragTrap::hitPoint;
 	e = ScavTrap::e;
-	atk = FragTrap::atk;
+	AttackDamage = FragTrap::AttackDamage;
 	std::cout << "\033[1;34m" << "DiamondTrap " << _name << " created." << "\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other.name + "_clap_name"), ScavTrap(other), FragTrap(other), name(other.name)
 {
-	pv = other.pv;
+	hitPoint = other.hitPoint;
 	e = other.e;
-	atk = other.atk;
+	AttackDamage = other.AttackDamage;
 	std::cout << "\033[1;34m" << "DiamondTrap " << other.name << " copy created." << "\033[0m" << std::endl;
 }
 

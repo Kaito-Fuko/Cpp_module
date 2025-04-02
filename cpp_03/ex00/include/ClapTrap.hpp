@@ -6,10 +6,10 @@
 class ClapTrap
 {
 	private:
-		std::string name;
-		unsigned int			pv;
-		unsigned int			e;
-		unsigned int			atk;
+		std::string 	name;
+		unsigned int	hitPoint;
+		unsigned int	e;
+		unsigned int	AttackDamage;
 
 	public:
 		ClapTrap();
@@ -24,9 +24,9 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 
 		std::string getName(void);
-		int	getPv(void);
+		int	gethitPoint(void);
 		int	getE(void);
-		int	getAtk(void);
+		int	getAttackDamage(void);
 
 		void	print_Trap();
 };

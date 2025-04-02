@@ -2,25 +2,25 @@
 
 ScavTrap::ScavTrap(): ClapTrap("Default")
 {
-	pv = 100;
+	hitPoint = 100;
 	e = 50;
-	atk = 20;
+	AttackDamage = 20;
 	std::cout << "ScavTrap " << name << " created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	pv = 100;
+	hitPoint = 100;
 	e = 50;
-	atk = 20;
+	AttackDamage = 20;
 	std::cout << "ScavTrap " << name << " created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other):  ClapTrap(other)
 {
-	pv = 100;
+	hitPoint = 100;
 	e = 50;
-	atk = 20;
+	AttackDamage = 20;
 	std::cout << "\033[0;33m" << "Copy constructor called." << "\033[0m" << std::endl;
 }
 
@@ -38,14 +38,14 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (this->getE() > 0 && this->getPv() > 0)
+	if (this->getE() > 0 && this->gethitPoint() > 0)
 	{
 		e -= 1;
-		std::cout << "\033[93m" << "ScavTrap " << this->getName() << " attack " << target << ", causing " << this->getAtk() << " points of damage." << "\033[0m" << std::endl;
+		std::cout << "\033[93m" << "ScavTrap " << this->getName() << " attack " << target << ", causing " << this->getAttackDamage() << " points of damage." << "\033[0m" << std::endl;
 	}
 	else if (this->getE() <= 0)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << " doesn't have enough energy for attack." << "\033[0m" << std::endl;
-	else if (this->getPv() <= 0)
+	else if (this->gethitPoint() <= 0)
 		std::cout << "\033[93m" << "ScavTrap " << this->getName() << "doesn't have enough health point for attack." << "\033[0m" << std::endl;
 }
 
