@@ -12,6 +12,7 @@ Fixed::Fixed(int value): value(value << valueBits)
 
 Fixed::Fixed(float value): value(roundf(value * (1 << valueBits)))
 {
+	// value = roundf(value * (1 << valueBits));
 	std::cout << "float constructor called" << std::endl;
 }
 
@@ -26,12 +27,6 @@ Fixed&	Fixed::operator=(const Fixed& other)
 		this->value = other.value;
 	return *this;
 	std::cout << "Copy assignment operator called" << std::endl;
-}
-
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
-{
-	out << static_cast<float>(fixed.value) / (1 << fixed.valueBits);
-	return out;
 }
 
 Fixed::~Fixed()
@@ -53,4 +48,15 @@ void	Fixed::setRawBits(int raw)
 int	Fixed::toInt() const
 {
 	return value >> valueBits;
+}
+
+float	Fixed::toFloat() const
+{
+	return ((float)value / (1 << valueBits));
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return out;
 }

@@ -24,13 +24,6 @@ class	Fixed
 		Fixed& operator--();
 		Fixed operator--(int);
 
-		friend Fixed operator+(const Fixed& a, const Fixed& b);
-		friend Fixed operator-(const Fixed& a, const Fixed& b);
-		friend Fixed operator*(const Fixed& a, const Fixed& b);
-		friend Fixed operator/(const Fixed& a, const Fixed& b);
-
-		friend std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
-
 		static Fixed &min(Fixed& a, Fixed& b);
 		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& min(const Fixed& a, const Fixed& b);
@@ -39,8 +32,14 @@ class	Fixed
 		int		getRawBits() const;
 		void	setRawBits(int value);
 		int		toInt() const;
+		float	toFloat() const;
 };
 
+Fixed operator+(const Fixed& a, const Fixed& b);
+Fixed operator-(const Fixed& a, const Fixed& b);
+Fixed operator*(const Fixed& a, const Fixed& b);
+Fixed operator/(const Fixed& a, const Fixed& b);
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 #endif
 
 // J'affronterai toutes les tempêtes

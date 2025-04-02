@@ -74,11 +74,17 @@ Fixed operator/(const Fixed& a, const Fixed& b)
 	return (res);
 }
 
+float	Fixed::toFloat() const
+{
+	return ((float)value / (1 << valueBits));
+}
+
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
-	out << static_cast<float>(fixed.value) / (1 << fixed.valueBits);
+	out << fixed.toFloat();
 	return out;
 }
+
 
 Fixed::~Fixed()
 {
