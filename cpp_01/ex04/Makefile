@@ -19,6 +19,7 @@ INC_DIR = include
 
 # Fichiers sources
 SRC = $(SRC_DIR)/main.cpp \
+	  $(SRC_DIR)/replace.cpp
 
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
