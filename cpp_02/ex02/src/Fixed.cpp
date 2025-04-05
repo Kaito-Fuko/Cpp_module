@@ -85,11 +85,38 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 	return out;
 }
 
+bool operator<(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() < b.getRawBits());
+}
+
+bool operator>(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() > b.getRawBits());
+}
+
+bool operator<=(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() <= b.getRawBits());
+}
+
+bool operator>=(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() >= b.getRawBits());
+}
+
+bool operator==(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() == b.getRawBits());
+}
+
+bool operator!=(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() != b.getRawBits());
+}
 
 Fixed::~Fixed()
-{
-	// std::cout << "Destructor called" << std::endl;
-}
+{}
 
 Fixed&	Fixed::min(Fixed& a, Fixed& b)
 {

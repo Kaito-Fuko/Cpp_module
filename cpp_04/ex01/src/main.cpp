@@ -6,7 +6,18 @@
 #include "../include/WrongCat.hpp"
 #include "../include/Brain.hpp"
 
-int main() {
+int main()
+{
+    // Dog basic;
+    // {
+    //     Dog tmp = basic;
+    //     std::cout << "\033[92m" << "Type de basic : " << basic.getType() << "\033[0m" << std::endl;
+    //     std::cout << "\033[33m" << "Type de tmp : " << tmp.getType() << "\033[0m" << std::endl;
+    
+    //     std::cout << "\033[92m" << "Son de basic : " << "\033[0m"; basic.makeSound();
+    //     std::cout << "\033[33m" << "Son de tmp : " << "\033[0m"; tmp.makeSound();
+    // }
+
     std::cout << "\033[1m" << "\n=== TEST AVEC ANIMAL, DOG, CAT ===" << "\033[0m" << std::endl;
     const Animal* meta = new Animal();
     const Animal* i = new Cat();

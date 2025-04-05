@@ -6,25 +6,25 @@
 class Bureaucrat
 {
 	private:
-		const std::string _name = "Bureaucrat";
+		const std::string _name;
 		int _grade;
 
 	public:
 		Bureaucrat();
-		Bureaucrat(int grade);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
 
-		bool GradeTooHighException();
-		bool GradeTooLowException();
+		std::string GradeTooHighException();
+		std::string GradeTooLowException();
 
 		std::string getName();
 		int			getGrade();
 
-		int	incrementGrade();
-		int decrementGrade();
+		void	incrementGrade();
+		void 	decrementGrade();
 };
 
-std::ofstream& operator<<(std::ofstream& out, Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat);
 
 #endif

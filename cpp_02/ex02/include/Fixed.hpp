@@ -39,6 +39,15 @@ Fixed operator+(const Fixed& a, const Fixed& b);
 Fixed operator-(const Fixed& a, const Fixed& b);
 Fixed operator*(const Fixed& a, const Fixed& b);
 Fixed operator/(const Fixed& a, const Fixed& b);
+
+bool operator<(const Fixed& a, const Fixed& b);
+bool operator>(const Fixed& a, const Fixed& b);
+bool operator<=(const Fixed& a, const Fixed& b);
+bool operator>=(const Fixed& a, const Fixed& b);
+bool operator==(const Fixed& a, const Fixed& b);
+bool operator!=(const Fixed& a, const Fixed& b);
+
+
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 #endif
 

@@ -3,7 +3,7 @@
 DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap("Default"), FragTrap("Default"), name("Default")
 {
 	hitPoint = FragTrap::hitPoint;
-	e = ScavTrap::e;
+	energyPoint = ScavTrap::energyPoint;
 	AttackDamage = FragTrap::AttackDamage;
 	std::cout << "\033[1;36m" << "DiamondTrap Default created." << "\033[0m" << std::endl;
 }
@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap("Default"), 
 DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name), name(_name)
 {
 	hitPoint = FragTrap::hitPoint;
-	e = ScavTrap::e;
+	energyPoint = ScavTrap::energyPoint;
 	AttackDamage = FragTrap::AttackDamage;
 	std::cout << "\033[1;36m" << "DiamondTrap " << _name << " created." << "\033[0m" << std::endl;
 }
@@ -19,7 +19,7 @@ DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name"), Sca
 DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other.name + "_clap_name"), ScavTrap(other), FragTrap(other), name(other.name)
 {
 	hitPoint = other.hitPoint;
-	e = other.e;
+	energyPoint = other.energyPoint;
 	AttackDamage = other.AttackDamage;
 	std::cout << "\033[1;36m" << "DiamondTrap " << other.name << " copy created." << "\033[0m" << std::endl;
 }
@@ -38,5 +38,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 
 void	DiamondTrap::WhoAmI()
 {
-	std::cout << "\033[1;36m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
+	if (hitPoint > 0)
+		std::cout << "\033[1;36m" << "I'm Diamond " << name << " and Clap " << ClapTrap::name << ".\033[0m" << std::endl;
+	else
+		std::cout << "\033[1;36m" << "I'm dead" << "\033[0m" << std::endl;
 }

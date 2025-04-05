@@ -5,12 +5,13 @@ Cat::Cat(): Animal("Cat")
 	std::cout << "\033[92m" << "Cat Default created" << "\033[0m" << std::endl;
 }
 
-Cat::Cat(const std::string _type): Animal("Cat")
+Cat::Cat(const std::string _type): Animal(_type)
 {
+	type = _type;
 	std::cout << "\033[92m" << _type << " created" << "\033[0m" << std::endl;
 }
 
-Cat::Cat(const Cat& other): Animal("Cat")
+Cat::Cat(const Cat& other): Animal(other.type)
 {
 	std::cout << "\033[92m" << other.type << " copy created" << "\033[0m" << std::endl;
 }

@@ -21,6 +21,19 @@ int main( void )
 	std::cout << "7 " << c << std::endl;
 	std::cout << "8 " << d << std::endl;
 
+	if (a > b)
+		std::cout << a << " > " << b << std::endl;
+	if (a < b)
+		std::cout << a << " < " << b << std::endl;
+	if (a >= b)
+		std::cout << a << " >= " << b << std::endl;
+	if (a <= b)
+		std::cout << a << " <= " << b << std::endl;
+	if (a == b)
+		std::cout << a << " == " << b << std::endl;
+	if (a != b)
+		std::cout << a << " != " << b << std::endl;
+
 	std::cout << a << "/" << c << ": max: " << Fixed::max(a, c) << std::endl;
 	std::cout << a << "/" << c << ": min: " << Fixed::min(a, c) << std::endl;
 	std::cout << b << "/" << d << ": max: " << Fixed::max(b, d) << std::endl;

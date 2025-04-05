@@ -3,7 +3,7 @@
 FragTrap::FragTrap(): ClapTrap("Default")
 {
 	hitPoint = 100;
-	e = 100;
+	energyPoint = 100;
 	AttackDamage = 30;
 	std::cout << "\033[1m" << "FragTrap Default constructor" << "\033[0m" << std::endl;
 }
@@ -11,16 +11,16 @@ FragTrap::FragTrap(): ClapTrap("Default")
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	hitPoint = 100;
-	e = 100;
+	energyPoint = 100;
 	AttackDamage = 30;
 	std::cout << "\033[1m" << "FragTrap " << name <<" created" << "\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 {
-	hitPoint = 100;
-	e = 100;
-	AttackDamage = 30;
+	hitPoint = other.hitPoint;
+	energyPoint = other.energyPoint;
+	AttackDamage = other.AttackDamage;
 	std::cout << "\033[1m" << "FragTrap" << other.name << "Copy constructor called." << "\033[0m" << std::endl;
 }
 

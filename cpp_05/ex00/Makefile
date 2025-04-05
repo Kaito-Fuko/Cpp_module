@@ -6,7 +6,7 @@ COLOR_BROWN = \033[0;33m
 COLOR_END = \033[0m
 
 # Nom du fichier exécutable
-NAME = Animal
+NAME = Bureaucrat
 
 # Compilateur
 CXX = c++

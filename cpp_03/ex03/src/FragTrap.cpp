@@ -3,7 +3,7 @@
 FragTrap::FragTrap(): ClapTrap("Default")
 {
 	hitPoint = 100;
-	e = 100;
+	energyPoint = 50;
 	AttackDamage = 30;
 	std::cout << "\033[1m" << "FragTrap Default created." << "\033[0m" << std::endl;
 }
@@ -11,7 +11,7 @@ FragTrap::FragTrap(): ClapTrap("Default")
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	hitPoint = 100;
-	e = 100;
+	energyPoint = 50;
 	AttackDamage = 30;
 	std::cout << "\033[1m" << "FragTrap " << name <<" created." << "\033[0m" << std::endl;
 }
@@ -19,7 +19,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 {
 	hitPoint = other.hitPoint;
-	e = other.e;
+	energyPoint = other.energyPoint;
 	AttackDamage = other.AttackDamage;
 	std::cout << "\033[1m" << "FragTrap" << other.name << " Copy created." << "\033[0m" << std::endl;
 }
