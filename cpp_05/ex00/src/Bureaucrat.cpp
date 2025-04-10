@@ -46,16 +46,16 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade - 1 <= 150)
-		_grade--;
+	if (_grade + 1 <= 150)
+		_grade++;
 	else
 		throw GradeTooLowException();
 }
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade + 1 <= 1)
-		_grade++;
+	if (_grade - 1 >= 1)
+		_grade--;
 	else
 		throw GradeTooHighException();
 }
