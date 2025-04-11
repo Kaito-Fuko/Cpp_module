@@ -24,6 +24,13 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other): _grade(other._grade)
 Bureaucrat::~Bureaucrat()
 {}
 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+	if (this == &other)
+		this->_grade = other._grade;
+	return *this;
+}
+
 std::string Bureaucrat::GradeTooHighException()
 {
 	return "Grade too high!";

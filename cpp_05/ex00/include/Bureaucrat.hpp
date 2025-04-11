@@ -15,6 +15,8 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
 
+		Bureaucrat& operator=(const Bureaucrat& other);
+
 		std::string GradeTooHighException();
 		std::string GradeTooLowException();
 
