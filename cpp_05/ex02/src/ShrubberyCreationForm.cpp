@@ -1,0 +1,80 @@
+#include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm(): From("ShrubberyCreationForm", 0, 145, 137), _target("default")
+{}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target): From("ShrubberyCreationForm", 0, 145, 137), _target(target)
+{}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other): From(other), _target(other._target)
+{}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
+    if (this != &other) {
+        From::operator=(other);
+        _target = other._target;
+    }
+    return *this;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat& bureaucrat)
+{
+    if (!this->getSign())
+        throw std::runtime_error("Form is not signed.");
+    if (bureaucrat.getGrade() > this->getGradeExec())
+        throw std::runtime_error("Bureaucrat grade too low to execute.");
+
+    std::ofstream file((_target + "_shrubbery").c_str());
+    if (!file) {
+        std::cerr << "Failed to open the file." << std::endl;
+        return;
+    }
+
+    file << "\033[1;38;5;22m"
+         << "             *\n"
+		 << "        *          *\n"
+		 << "      *                *                *\n"
+		 << "     *                      *     *          *\n"
+		 << "    *                                            *\n"
+		 << "    *                                              *\n"
+		 << "   *                                               \n"
+		 << "  *                                                 *\n"
+		 << "*                                              \n"
+		 << "*                                                   *\n"
+		 << "  *\n"
+		 << "   \033[0;38;5;94m _\033[1;38;5;22m*   *\033[0;38;5;94m_                                        \033[1;38;5;22m*\n"
+		 << "   \033[0;38;5;94m/____\033[1;38;5;22m*\033[0;38;5;94m__\\                                      \033[1;38;5;22m*\n"
+		 << "  \033[0;38;5;94m/___(+)___\\                                   \033[1;38;5;22m*\n"
+		 << " \033[0;38;5;94m/____/+\\____\\  \033[1;38;5;22m*   *\033[1;38;5;94m///\033[1;38;5;22m*        *  *       *\n"
+		 << " \033[0;38;5;94m|____ _ ____|     \033[1;38;5;94m///      \033[1;38;5;22m*           *\n"
+		 << " \033[0;38;5;94m|_[+]| |[+]_|\033[1;38;5;94m\\   ///\n"
+		 << " \033[0;38;5;94m|____|_|____|\033[1;38;5;94m\\\\ ///\n"
+		 << "    \033[1;38;5;94m==\033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m===\\\\ \\||!\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|   \033[1;38;5;94m\\\\\\ |{}\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|    \033[1;38;5;94m\\\\\\!||\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     |/\\||\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     !\\/||\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     ||!|/\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     ||[]\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     O!||\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     |||!\n"
+		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[1;38;5;94m     !|()\n"
+		//  << "-__Vw_|=|v_vW/|!||\\V_WV_
+		// 	 v/WV\\w-"
+        //  << "      /  \\\n"
+        //  << "     /++++\\\n"
+        //  << "    /  ()  \\\n"
+        //  << "    /      \\\n"
+        //  << "   /~`~`~`~`\\\n"
+		//  << "\033[1;38;5;94m"
+        //  << "      |||\n"
+        //  << "      |||\n"
+        //  << "      |||\n"
+         << "\033[0m";
+
+    file.close();
+}
