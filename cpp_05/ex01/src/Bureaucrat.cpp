@@ -1,4 +1,5 @@
 #include "../include/Bureaucrat.hpp"
+#include "../include/From.hpp"
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
 {}
@@ -65,6 +66,11 @@ void Bureaucrat::incrementGrade()
 		_grade--;
 	else
 		throw GradeTooHighException();
+}
+
+void	Bureaucrat::signFrom(From& from)
+{
+	from.beSigned(*this);
 }
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat)

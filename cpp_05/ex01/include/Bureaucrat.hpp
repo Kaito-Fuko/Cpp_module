@@ -4,11 +4,14 @@
 # include <iostream>
 # include "From.hpp"
 
+class From;
+
 class Bureaucrat
 {
 	private:
 		const std::string _name;
 		int _grade;
+
 
 	public:
 		Bureaucrat();
@@ -26,6 +29,7 @@ class Bureaucrat
 
 		void	incrementGrade();
 		void 	decrementGrade();
+		void	signFrom(From& from);
 };
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat);

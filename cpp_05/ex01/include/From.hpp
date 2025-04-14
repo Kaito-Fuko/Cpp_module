@@ -3,6 +3,8 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class From
 {
 	private:
@@ -21,11 +23,12 @@ class From
 
 		const std::string getName();
 		bool	getSign();
-		const int getGradeSign();
-		const int getGradeExec();
+		int getGradeSign();
+		int getGradeExec();
 
 		std::string GradeTooHighException();
-		std::string GradeTooloxException();
+		std::string GradeTooLowException();
+		void	beSigned(Bureaucrat& bureaucrat);
 };
 
 std::ostream& operator<<(std::ostream& out, From& from);
