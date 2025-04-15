@@ -30,5 +30,5 @@ void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 	{
 		throw std::string("Executor is too low for signed.");
 	}
-	std::cout << _target << " was pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << _target << " was pardoned by Zaphod Beeblebrox";
 }

@@ -4,14 +4,14 @@ int main()
 {
 	try
 	{
-		From from;
-		std::cout << from << std::endl;
-		From from1("49.3", 0, 10, 1);
-		std::cout << from1 << std::endl;
+		Form Form;
+		std::cout << Form << std::endl;
+		Form Form1("49.3", 10, 1);
+		std::cout << Form1 << std::endl;
 		Bureaucrat bureaucrat("Elisa", 1);
-		bureaucrat.signFrom(from1);
+		bureaucrat.signForm(Form1);
 		Bureaucrat bureaucrat1("lfi", 20);
-		bureaucrat1.signFrom(from1);
+		bureaucrat1.signForm(Form1);
 	}
 	catch(const std::string& e)
 	{

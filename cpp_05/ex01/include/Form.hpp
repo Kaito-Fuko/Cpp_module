@@ -1,11 +1,11 @@
-#ifndef AFROM_HPP
-# define AFROM_HPP
+#ifndef Form_HPP
+# define Form_HPP
 
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class From
+class Form
 {
 	private:
 		const std::string	_name;
@@ -14,12 +14,12 @@ class From
 		const int	_grade_exec;
 
 	public:
-		From();
-		From(std::string name, bool sign, int grade_sign, int grade_exec);
-		From(const From& other);
-		virtual ~From();
+		Form();
+		Form(std::string name, int grade_sign, int grade_exec);
+		Form(const Form& other);
+		~Form();
 
-		From& operator=(const From& other);
+		Form& operator=(const Form& other);
 
 		const std::string getName();
 		bool	getSign();
@@ -31,6 +31,6 @@ class From
 		void	beSigned(Bureaucrat& bureaucrat);
 };
 
-std::ostream& operator<<(std::ostream& out, From& from);
+std::ostream& operator<<(std::ostream& out, Form& Form);
 
 #endif

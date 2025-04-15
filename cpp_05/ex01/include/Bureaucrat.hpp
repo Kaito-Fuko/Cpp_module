@@ -2,9 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include "From.hpp"
+# include "Form.hpp"
 
-class From;
+class Form;
 
 class Bureaucrat
 {
@@ -29,7 +29,7 @@ class Bureaucrat
 
 		void	incrementGrade();
 		void 	decrementGrade();
-		void	signFrom(From& from);
+		void	signForm(Form& Form);
 };
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat);

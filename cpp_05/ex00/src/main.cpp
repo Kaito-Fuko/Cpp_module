@@ -39,6 +39,5 @@ int main()
 	catch(const std::string& e)
 	{
 		std::cerr << e << std::endl;
-	}	
-	
+	}		
 }
