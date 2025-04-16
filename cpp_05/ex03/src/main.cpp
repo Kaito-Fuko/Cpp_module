@@ -1,11 +1,14 @@
 #include "../include/Bureaucrat.hpp"
-#include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Intern.hpp"
 
 int main()
 {
 	std::srand(std::time(NULL));
+	Intern esclave;
+	esclave.makeForm("Shrubbery", "Garden");
 	try 
 	{
         Bureaucrat bob("Bob", 1); // Grade 1 = super haut, il peut tout faire
