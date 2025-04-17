@@ -31,12 +31,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-std::string Bureaucrat::GradeTooHighException()
+std::exception Bureaucrat::GradeTooHighException()
 {
 	return "Grade too high!";
 }
 
-std::string Bureaucrat::GradeTooLowException()
+std::exception Bureaucrat::GradeTooLowException()
 {
 	return "Grade too low!";
 }

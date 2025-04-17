@@ -12,9 +12,9 @@ int main()
 		Bureaucrat bureaucrat3("Bob", 152);
 		std::cout << bureaucrat3 << std::endl;
 	}
-	catch(const std::string& e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
@@ -36,8 +36,8 @@ int main()
 		bureaucrat3.decrementGrade();
 		std::cout << bureaucrat3 << std::endl;
 	}
-	catch(const std::string& e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e << std::endl;
+		std::cerr << e.what() << std::endl;
 	}		
 }

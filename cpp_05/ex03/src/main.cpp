@@ -7,50 +7,56 @@
 int main()
 {
 	std::srand(std::time(NULL));
+
+    Bureaucrat bob("Bob", 1);
 	Intern esclave;
-	esclave.makeForm("Shrubbery", "Garden");
-	try 
-	{
-        Bureaucrat bob("Bob", 1); // Grade 1 = super haut, il peut tout faire
-        ShrubberyCreationForm form("garden");
+	Form* form = esclave.makeForm("robotomy request", "IronMan");
+	form->beSigned(bob);
+	bob.signForm(*form);
+	// bob.executeForm(*form);
+	delete (form);
+	// try 
+	// {
+    //     Bureaucrat bob("Bob", 1); // Grade 1 = super haut, il peut tout faire
+    //     ShrubberyCreationForm form("garden");
 
-        std::cout << "Signing the form..." << std::endl;
-        form.beSigned(bob);
+    //     std::cout << "Signing the form..." << std::endl;
+    //     form.beSigned(bob);
 
-        std::cout << "Executing the form..." << std::endl;
-        form.execute(const_cast<const Bureaucrat&>(bob));
+    //     std::cout << "Executing the form..." << std::endl;
+    //     form.execute(const_cast<const Bureaucrat&>(bob));
 
-        std::cout << "Shrubbery has been created in 'garden_shrubbery'!" << std::endl;
+    //     std::cout << "Shrubbery has been created in 'garden_shrubbery'!" << std::endl;
 
-		RobotomyRequestForm Robot("Jarvis");
-		std::cout << "Signing the form..." << std::endl;
-        Robot.beSigned(bob);
+	// 	RobotomyRequestForm Robot("Jarvis");
+	// 	std::cout << "Signing the form..." << std::endl;
+    //     Robot.beSigned(bob);
 
-        std::cout << "Executing the form..." << std::endl;
-        Robot.execute(const_cast<const Bureaucrat&>(bob));
+    //     std::cout << "Executing the form..." << std::endl;
+    //     Robot.execute(const_cast<const Bureaucrat&>(bob));
 
-		PresidentialPardonForm President("Mark");
-		std::cout << "Signing the form..." << std::endl;
-        President.beSigned(bob);
+	// 	PresidentialPardonForm President("Mark");
+	// 	std::cout << "Signing the form..." << std::endl;
+    //     President.beSigned(bob);
 
-        std::cout << "Executing the form..." << std::endl;
-        President.execute(const_cast<const Bureaucrat&>(bob));
-    }
-	catch (const std::string& e)
-	{
-        std::cerr << "Error: " << e << std::endl;
-    }
+    //     std::cout << "Executing the form..." << std::endl;
+    //     President.execute(const_cast<const Bureaucrat&>(bob));
+    // }
+	// catch (const std::string& e)
+	// {
+    //     std::cerr << "Error: " << e << std::endl;
+    // }
 
 	// try
 	// {
-	// 	Form Form;
-	// 	std::cout << Form << std::endl;
-	// 	Form Form1("49.3", 0, 10, 1);
-	// 	std::cout << Form1 << std::endl;
+	// 	Intern* a = new Intern();
+	// 	Form* form1 = a->makeForm("robotomy request", "Iron man");
+	// 	std::cout << *form1 << std::endl;
 	// 	Bureaucrat bureaucrat("Elisa", 1);
-	// 	bureaucrat.signForm(Form1);
+	// 	bureaucrat.signForm(*form1);
 	// 	Bureaucrat bureaucrat1("lfi", 20);
-	// 	bureaucrat1.signForm(Form1);
+	// 	bureaucrat1.signForm(*form1);
+	// 	bureaucrat.executeForm(const_cast<const Form&>(*form1));
 	// }
 	// catch(const std::string& e)
 	// {

@@ -1,9 +1,9 @@
 #include "../include/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("RobotomyRequestForm", 145, 137), _target("default")
+RobotomyRequestForm::RobotomyRequestForm(): Form("RobotomyRequestForm", 72, 45), _target("default")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target): Form("RobotomyRequestForm", 145, 137), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target): Form("RobotomyRequestForm", 72, 45), _target(target)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other): Form(other), _target(other._target)

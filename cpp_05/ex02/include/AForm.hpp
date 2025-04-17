@@ -29,7 +29,7 @@ class Form
 		std::string GradeTooHighException();
 		std::string GradeTooLowException();
 		void	beSigned(Bureaucrat& bureaucrat);
-		// virtual void	execute(Bureaucrat const& executor) const = 0;
+		virtual void	execute(Bureaucrat const& executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, Form& Form);

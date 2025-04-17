@@ -74,11 +74,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 //         *      * * *
 //       *      *         *                *
 //      *      *    ()        **     *          *  
-
 //     *  ()  *                *          .         *
 //     *      *             () *                      *
 //    *        *               *             ()       *
-
 //   *  * *    //*      * *   *         0              *
 // *   ()    *//    *  * \\ *                           *
 // *          *    .  *  *\\      * *                   *

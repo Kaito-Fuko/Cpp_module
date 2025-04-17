@@ -1,7 +1,7 @@
 #include "../include/Intern.hpp"
-#include "../include/PresidentialPardonForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
 #include "../include/ShrubberyCreationForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {}
@@ -20,31 +20,41 @@ Intern& Intern::operator=(const Intern& other)
 	return *this;
 }
 
-Form&	Intern::makeForm(std::string name, std::string target)
+Form*	Intern::makeForm(std::string name, std::string target)
 {
- 	Form form;
+	int index = -1;
+	std::string form_is[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-	if (name == "Robotomy")
+	for (int i = 0; i < 3; i++)
+		if (form_is[i] == name)
+			index = i;
+
+	switch (index)
 	{
-		RobotomyRequestForm Robot(target);
-		return (form);
+		case 0:
+		{
+			Form* form = new ShrubberyCreationForm(target);
+			std::cout << "Intern creates " << *form << std::endl;
+			delete form;
+			return new ShrubberyCreationForm(target);
+		}
+		case 1:
+		{
+			Form* form = new RobotomyRequestForm(target);
+			std::cout << "Intern creates " << *form << std::endl;
+			delete form;
+			return new RobotomyRequestForm(target);
+		}
+		case 2:
+		{
+			Form* form = new PresidentialPardonForm(target);
+			std::cout << "Intern creates " << *form << std::endl;
+			delete form;
+			return new PresidentialPardonForm(target);
+		}
+		default:
+			std::cout << "Sorry your ask is not avaible." << std::endl;
+			return NULL;
 	}
-	else if (name == "Shrubbery")
-	{
-		Form form("ShrubberyCreationForm", 145, 137);
-		ShrubberyCreationForm Shrubbery(target);
-		return (form);
-	}
-	else if (name == "President")
-	{
-		Form form("PresidentialPardonForm", 25, 5);
-		PresidentialPardonForm President(target);
-		return (form);
-	}
-	else
-	{
-		std::cout << "Sorry your ask is not avaible." << std::endl;
-		Form form;
-		return (form);
-	}
+	return NULL;
 }

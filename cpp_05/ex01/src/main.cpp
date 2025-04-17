@@ -4,14 +4,14 @@ int main()
 {
 	try
 	{
-		Form Form;
-		std::cout << Form << std::endl;
-		Form Form1("49.3", 10, 1);
-		std::cout << Form1 << std::endl;
+		Form form;
+		std::cout << form << std::endl;
+		Form form1("49.3", 10, 1);
+		std::cout << form1 << std::endl;
 		Bureaucrat bureaucrat("Elisa", 1);
-		bureaucrat.signForm(Form1);
+		bureaucrat.signForm(form1);
 		Bureaucrat bureaucrat1("lfi", 20);
-		bureaucrat1.signForm(Form1);
+		bureaucrat1.signForm(form1);
 	}
 	catch(const std::string& e)
 	{
