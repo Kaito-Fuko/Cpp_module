@@ -15,27 +15,27 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
-    if (this != &other) {
-        Form::operator=(other);
-        _target = other._target;
-    }
-    return *this;
+	if (this != &other) {
+		Form::operator=(other);
+		_target = other._target;
+	}
+	return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
-    if (!this->getSign())
-        throw std::string("Form is not signed.");
-    if (executor.getGrade() > this->getGradeExec())
-        throw std::string("Bureaucrat grade too low to execute.");
+	if (!this->getSign())
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLowForExec();
 
-    std::ofstream file((_target + "_shrubbery").c_str());
-    if (!file) {
-        std::cerr << "Failed to open the file." << std::endl;
-        return;
-    }
+	std::ofstream file((_target + "_shrubbery").c_str());
+	if (!file) {
+		std::cerr << "Failed to open the file." << std::endl;
+		return;
+	}
 
-    file << "           \033[1;38;5;22m  *  \033[0m\n"
+	file << "           \033[1;38;5;22m  *  \033[0m\n"
 		 << "        \033[1;38;5;22m*      * * *\033[0m\n"
 		 << "      \033[1;38;5;22m*      *         *\033[0m              \033[1;38;5;22m  *  \033[0m\n"
 		 << "     \033[1;38;5;22m*      *    \033[1;38;5;196m()\033[1;38;5;22m        **     *          *\033[0m\n"
@@ -65,9 +65,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		 << "      \033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[0m     \033[1;38;5;94m!|()\033[0m\n"
 		 << "\033[0;38;5;154m-__Vw_\033[0;38;5;187m|\033[0;38;5;94m=\033[0;38;5;187m|\033[0;38;5;154mv_vW\033[1;38;5;94m/|!||\\\033[0;38;5;154mV_WV_\n"
 		 << "             \033[0;38;5;154mv\033[1;38;5;94m/\033[0;38;5;154mWV\033[1;38;5;94m\\\033[0;38;5;154mw-"
-         << "\033[0m";
+		 << "\033[0m";
 
-    file.close();
+	file.close();
 }
 
 //               *

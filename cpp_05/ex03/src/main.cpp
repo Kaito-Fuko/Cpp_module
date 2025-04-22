@@ -13,7 +13,7 @@ int main()
 	Form* form = esclave.makeForm("robotomy request", "IronMan");
 	form->beSigned(bob);
 	bob.signForm(*form);
-	// bob.executeForm(*form);
+	bob.executeForm(*form);
 	delete (form);
 	// try 
 	// {

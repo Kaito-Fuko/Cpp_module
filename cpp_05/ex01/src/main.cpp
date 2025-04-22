@@ -1,4 +1,5 @@
 #include "../include/Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 
 int main()
 {
@@ -12,10 +13,11 @@ int main()
 		bureaucrat.signForm(form1);
 		Bureaucrat bureaucrat1("lfi", 20);
 		bureaucrat1.signForm(form1);
+		std::cout << "erfa" << std::endl;
 	}
-	catch(const std::string& e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	
 	// try

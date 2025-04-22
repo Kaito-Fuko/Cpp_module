@@ -33,9 +33,9 @@ int main()
         std::cout << "Executing the form..." << std::endl;
         President.execute(const_cast<const Bureaucrat&>(bob));
     }
-	catch (const std::string& e)
+	catch (const std::exception& e)
 	{
-        std::cerr << "Error: " << e << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
 	// try
@@ -47,9 +47,9 @@ int main()
 	// 	Bureaucrat bureaucrat1("lfi", 20);
 	// 	bureaucrat1.signForm(form1);
 	// }
-	// catch(const std::string& e)
+	// catch(const std::exception& e)
 	// {
-	// 	std::cerr << e << '\n';
+	// 	std::cerr << e.what() << '\n';
 	// }
 	
 	// try
@@ -62,9 +62,9 @@ int main()
 	// 	Bureaucrat bureaucrat3("Bob", 152);
 	// 	std::cout << bureaucrat3 << std::endl;
 	// }
-	// catch(const std::string& e)
+	// catch(const std::exception& e)
 	// {
-	// 	std::cerr << e << std::endl;
+	// 	std::cerr << e.what() << std::endl;
 	// }
 
 	// try

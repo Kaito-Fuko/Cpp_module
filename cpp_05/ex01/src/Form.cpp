@@ -48,14 +48,19 @@ int Form::getGradeExec()
 	return _grade_exec;
 }
 
-std::string Form::GradeTooHighException()
+const char* Form::GradeTooHighException:: what() const throw()
 {
 	return "is too high.";
 }
 
-std::string Form::GradeTooLowException()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return "is too low.";
+}
+
+const char* Form::FormNotSigned::what() const throw()
+{
+	return "Form not sign."; 
 }
 
 void	Form::beSigned(Bureaucrat& bureaucrat)

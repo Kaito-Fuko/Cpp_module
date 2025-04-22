@@ -34,21 +34,21 @@ Form*	Intern::makeForm(std::string name, std::string target)
 		case 0:
 		{
 			Form* form = new ShrubberyCreationForm(target);
-			std::cout << "Intern creates " << *form << std::endl;
+			std::cout << "Intern creates :" << *form << std::endl;
 			delete form;
 			return new ShrubberyCreationForm(target);
 		}
 		case 1:
 		{
 			Form* form = new RobotomyRequestForm(target);
-			std::cout << "Intern creates " << *form << std::endl;
+			std::cout << "Intern creates :" << *form << std::endl;
 			delete form;
 			return new RobotomyRequestForm(target);
 		}
 		case 2:
 		{
 			Form* form = new PresidentialPardonForm(target);
-			std::cout << "Intern creates " << *form << std::endl;
+			std::cout << "Intern creates :" << *form << std::endl;
 			delete form;
 			return new PresidentialPardonForm(target);
 		}

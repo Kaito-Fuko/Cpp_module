@@ -14,24 +14,24 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
-    if (this != &other) {
-        Form::operator=(other);
-        _target = other._target;
-    }
-    return *this;
+	if (this != &other) {
+		Form::operator=(other);
+		_target = other._target;
+	}
+	return *this;
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
-    if (!this->getSign())
-        throw std::string("Form is not signed.");
-    if (executor.getGrade() > this->getGradeExec())
-        throw std::string("Executor has too low grade.");
+	if (!this->getSign())
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLowForExec();
 
-    std::cout << "BRRRRRRRRrrrrrr BBBBRRRRRRRRRRRRrrrrrr." << std::endl;
+	std::cout << "BRRRRRRRRrrrrrr BBBBRRRRRRRRRRRRrrrrrr." << std::endl;
 
-    if (std::rand() % 2 == 0)
-        std::cout << _target << " has been successfully robotomy." << std::endl;
-    else
-        std::cout << "Failure" << _target << " was not robotomy" << std::endl;
+	if (std::rand() % 2 == 0)
+		std::cout << _target << " has been successfully robotomy." << std::endl;
+	else
+		std::cout << "Failure" << _target << " was not robotomy" << std::endl;
 }
