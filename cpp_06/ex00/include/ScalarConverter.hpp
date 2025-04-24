@@ -1,7 +1,12 @@
 #ifndef SCALARCONVETER_HPP
 # define SCALARCONVETER_HPP
 
-# include <string>
+# include <iostream>
+# include <iomanip>
+# include <sstream>
+# include <limits>
+# include <cmath>
+# include <cctype>
 
 class ScalarConverter
 {
@@ -12,8 +17,13 @@ class ScalarConverter
 		~ScalarConverter();
 
 	public:
-
 		static void convert(const std::string& literal);
+
+		class IsTooLong: public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif
