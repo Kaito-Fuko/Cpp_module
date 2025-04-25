@@ -8,23 +8,27 @@ int main()
 	std::srand(std::time(NULL));
 	try 
 	{
-        Bureaucrat bob("Bob", 1);
-        ShrubberyCreationForm form("garden");
+        Bureaucrat bob("Bob", 0);
+        // ShrubberyCreationForm form("garden");
 
-        std::cout << "Signing the form..." << std::endl;
-        form.beSigned(bob);
+        // std::cout << "Signing the form..." << std::endl;
+        // form.beSigned(bob);
 
-        std::cout << "Executing the form..." << std::endl;
-		bob.executeForm(const_cast<const ShrubberyCreationForm&>(form));
+        // std::cout << "Executing the form..." << std::endl;
+		// bob.executeForm(const_cast<const ShrubberyCreationForm&>(form));
 
-        std::cout << "Shrubbery has been created in 'garden_shrubbery'!" << std::endl;
+        // std::cout << "Shrubbery has been created in 'garden_shrubbery'!" << std::endl;
 
-		RobotomyRequestForm Robot("Jarvis");
-		std::cout << "Signing the form..." << std::endl;
-        Robot.beSigned(bob);
+		// std::cout << std::endl;
 
-        std::cout << "Executing the form..." << std::endl;
-        Robot.execute(const_cast<const Bureaucrat&>(bob));
+		// RobotomyRequestForm Robot("Jarvis");
+		// std::cout << "Signing the form..." << std::endl;
+        // Robot.beSigned(bob);
+
+        // std::cout << "Executing the form..." << std::endl;
+        // Robot.execute(const_cast<const Bureaucrat&>(bob));
+
+		// std::cout << std::endl;
 
 		PresidentialPardonForm President("Mark");
 		std::cout << "Signing the form..." << std::endl;
@@ -32,6 +36,8 @@ int main()
 
         std::cout << "Executing the form..." << std::endl;
         President.execute(const_cast<const Bureaucrat&>(bob));
+		
+		std::cout << std::endl;
     }
 	catch (const std::exception& e)
 	{

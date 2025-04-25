@@ -33,5 +33,5 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 	if (std::rand() % 2 == 0)
 		std::cout << _target << " has been successfully robotomy." << std::endl;
 	else
-		std::cout << "Failure" << _target << " was not robotomy" << std::endl;
+		std::cout << "Failure " << _target << " was not robotomy" << std::endl;
 }
