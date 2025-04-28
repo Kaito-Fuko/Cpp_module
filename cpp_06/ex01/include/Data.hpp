@@ -3,14 +3,16 @@
 
 # include "Serializer.hpp"
 
+class Serializer;
+
 class Data
 {
 	private:
-		void	*ptr;
+		std::string	_name;
 
 	public:
 		Data();
-		Data(void *_ptr);
+		Data(std::string	name);
 		Data(const Data& other);
 		Data& operator=(const Data& other);
 		~Data();

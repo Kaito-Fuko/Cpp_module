@@ -1,18 +1,18 @@
 # include "../include/Data.hpp"
 
-Data::Data(): ptr(0)
+Data::Data(): _name(0)
 {}
 
-Data::Data(void *_ptr): ptr(_ptr)
+Data::Data(std::string name): _name(name)
 {}
 
-Data::Data(const Data& other): ptr(other.ptr)
+Data::Data(const Data& other): _name(other._name)
 {}
 
 Data& Data::operator=(const Data& other)
 {
 	if (this != &other)
-		ptr = other.ptr;
+		_name = other._name;
 	return *this;
 }
 

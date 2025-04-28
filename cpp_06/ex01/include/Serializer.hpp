@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include "Data.hpp"
+# include <stdint.h>
+
+class Data;
 
 class Serializer
 {
@@ -10,11 +13,11 @@ class Serializer
 		Serializer();
 		Serializer(const Serializer& other);
 		Serializer& operator=(const Serializer& other);
-		Serializer();
+		~Serializer();
 	
 	public:
-		uintptr_t serialize(Data* ptr);
-		Data*	deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data*	deserialize(uintptr_t raw);
 };
 
 #endif
