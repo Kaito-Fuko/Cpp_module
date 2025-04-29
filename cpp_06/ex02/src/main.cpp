@@ -3,7 +3,7 @@
 # include "../include/B.hpp"
 # include "../include/C.hpp"
 
-Base* generate()
+Base* Generate(void)
 {
 	Base* res;
 
@@ -38,11 +38,36 @@ void identify(Base* p)
 void identify(Base& p)
 {
 	(void)p;
+	try
+	{
+		A &a = dynamic_cast<A&>(p);
+		(void)a;
+		std::cout << "is A" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
+	try
+	{
+		B &b = dynamic_cast<B&>(p);
+		(void)b;
+		std::cout << "is B" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
+	try
+	{
+		C &c = dynamic_cast<C&>(p);
+		(void)c;
+		std::cout << "is C" << std::endl;
+	}
+	catch(const std::exception& e)
+	{}
 }
 
 int main()
 {
 	std::srand(std::time(NULL));
-	Base* test = generate();
+	Base* test = Generate();
 	identify(test);
+	identify(*test);
 }
