@@ -17,7 +17,6 @@ int main(int, char**)
     {
 		Array<int> tmp = numbers;
         Array<int> test(tmp);
-		std::cout << "ok" << std::endl;
     }
 	
     for (int i = 0; i < MAX_VAL; i++)
@@ -49,6 +48,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

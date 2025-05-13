@@ -43,15 +43,22 @@ Array<T>::Array(unsigned int N): _size(N)
 }
 
 template <typename T>
-Array<T>::Array(const Array<T>& other): _tab(other._tab), _size(other._size)
-{}
+Array<T>::Array(const Array<T>& other): _tab(NULL), _size(0)
+{
+	for (int i = 0; i < (int)_size; i++)
+		_tab[i] = other._tab[i];
+	_size = other._size;
+}
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
 	if (this != *other)
 	{
-		_tab = other._tab;
+		delete[] _tab;
+		_tab = NULL;
+		for (int i = 0; i < (int)_size; i++)
+			_tab[i] = other._tab[i];
 		_size = other._size;
 	}
 	return *this;
