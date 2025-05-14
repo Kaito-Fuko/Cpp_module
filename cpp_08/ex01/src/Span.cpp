@@ -10,9 +10,9 @@ Span::Span(int N): _N(N)
 
 Span::Span(const Span& other)
 {
+	_tab = NULL;
 	for (int i = 0; i < (int)_N; i++)
 		_tab[i] = other._tab[i];
-	
 }
 
 Span& Span::operator=(const Span& other)
@@ -21,6 +21,8 @@ Span& Span::operator=(const Span& other)
 	{
 		delete[] _tab;
 		_tab = NULL;
+		for (int i = 0; i < (int)_N; i++)
+			_tab[i] = other._tab[i];
 		_N = other._N;
 	}
 	return *this;
@@ -29,4 +31,17 @@ Span& Span::operator=(const Span& other)
 Span::~Span()
 {
 	delete[] _tab;
+}
+
+void	Span::addNumber(int i)
+{
+	(void)i;
+	if (_tab->size() >= _N)
+		throw TooMuch();
+	_tab->push_back(i);
+}
+
+const char* Span::TooMuch::what() const throw()
+{
+	return "Is full.";
 }
