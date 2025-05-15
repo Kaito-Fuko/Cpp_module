@@ -22,11 +22,20 @@ class Span
 		int shortestSpan() const;
 		int longestSpan() const;
 
-		class TooMuch: std::exception
+		class TooMuchException: public std::exception
 		{
-			const char* what() const throw();
+			public:
+				const char* what() const throw();
 		};
 
+		class AFewException: public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		void printSpan();
+		// void printSpan(std::vector<int>* tmp);
 };
 
 #endif

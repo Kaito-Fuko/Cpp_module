@@ -1,16 +1,32 @@
 #include "../include/Span.hpp"
 
-void	printSpan(std::vector<int>* tmp)
+void	Span::printSpan()
 {
 	std::vector<int>::const_iterator i;
-	for (i = tmp->begin(); i != tmp->end(); i++)
-		std::cout << *tmp << std::endl;
+	std::cout << "|-----------------------------------|\n|";
+	for (i = _tab->begin(); i != _tab->end(); i++)
+		std::cout << " " << *i << " |";
+	std::cout << "\n|-----------------------------------|" << std::endl;
 }
 
 int main()
 {
-	Span test(6);
-
-	test.addNumber(8);
-	printSpan(test._tab);
+	
+	try
+	{
+		Span test(6);
+		test.addNumber(8);
+		// test.longestSpan();
+		test.addNumber(4);
+		test.addNumber(8);
+		test.addNumber(2);
+		test.addNumber(8);
+		test.addNumber(0);
+		test.printSpan();
+		test.addNumber(5);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

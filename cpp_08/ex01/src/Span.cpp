@@ -37,11 +37,31 @@ void	Span::addNumber(int i)
 {
 	(void)i;
 	if (_tab->size() >= _N)
-		throw TooMuch();
-	_tab->push_back(i);
+		throw TooMuchException();
+	else
+		_tab->push_back(i);
 }
 
-const char* Span::TooMuch::what() const throw()
+int	Span::shortestSpan() const
+{
+	if (_tab->size() < 2)
+		throw AFewException();
+	return (0);
+}
+
+int	Span::longestSpan() const
+{
+	if (_tab->size() < 2)
+		throw AFewException();
+	return (0);
+}
+
+const char* Span::AFewException::what() const throw()
+{
+	return "NON.";
+}
+
+const char* Span::TooMuchException::what() const throw()
 {
 	return "Is full.";
 }
