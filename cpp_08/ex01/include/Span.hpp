@@ -4,12 +4,13 @@
 # include <iostream>
 # include <vector>
 # include <exception>
+# include <algorithm>
 
 class Span
 {
 	private:
 		unsigned int _N;
-		std::vector<int> *_tab;
+		std::vector<int> _tab;
 
 	public:
 		Span();
