@@ -1,4 +1,6 @@
 #include "../include/Span.hpp"
+#include <cstdlib>
+#include <ctime>
 
 void	Span::printSpan()
 {
@@ -11,6 +13,60 @@ void	Span::printSpan()
 
 int main()
 {
+	
+	// {
+	// 	const unsigned int size = 10000;
+    // 	Span sp(size);
+
+ 	// 	std::srand(std::time(NULL)); // Initialisation du générateur aléatoire
+
+    // // Ajout de 10 000 nombres aléatoires
+    // 	for (unsigned int i = 0; i < size; ++i)
+	// 	{
+    //     	int randomValue = std::rand(); // Génère un entier aléatoire
+    //     	sp.addNumber(randomValue);
+    // 	}
+	// 	sp.printSpan();
+    // 	try
+	// 	{
+    // 	    std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+    // 	    std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+    // 	}
+	// 	catch (const std::exception& e)
+	// 	{
+    // 	    std::cerr << "Erreur: " << e.what() << std::endl;
+    // 	}
+	// }
+
+	{
+		std::vector<int> myNumbers(10000);
+
+		for (size_t i = 0; i < myNumbers.size(); ++i)
+    		myNumbers[i] = std::rand();
+
+		Span sp(10000);
+		sp.addMultiNumber(myNumbers.begin(), myNumbers.end());
+		try
+		{
+    	    std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+    	    std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+    	}
+		catch (const std::exception& e)
+		{
+    	    std::cerr << "Erreur: " << e.what() << std::endl;
+    	}
+	}
+
+	{
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
 	
 	try
 	{
@@ -36,4 +92,6 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+
+	return 0;
 }

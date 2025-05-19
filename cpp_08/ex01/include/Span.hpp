@@ -22,6 +22,8 @@ class Span
 		void addNumber(int i);
 		int shortestSpan() const;
 		int longestSpan() const;
+		template <typename InputIterator>
+		void addMultiNumber(InputIterator begin, InputIterator end);
 
 		class TooMuchException: public std::exception
 		{
@@ -38,5 +40,16 @@ class Span
 		void printSpan();
 		// void printSpan(std::vector<int>* tmp);
 };
+
+template <typename InputIterator>
+void Span::addMultiNumber(InputIterator begin, InputIterator end)
+{
+	for (; begin != end; ++begin)
+	{
+		if (_tab.size() >= _N)
+			throw Span::TooMuchException();
+		_tab.push_back(*begin);
+	}
+}
 
 #endif
