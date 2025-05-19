@@ -1,8 +1,10 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-#include <iostream>
-#include <stack>
+# include <iostream>
+# include <stack>
+# include <deque>
+# include <list>
 
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
@@ -16,15 +18,15 @@ class MutantStack : public std::stack<T, Container>
         typedef typename MutantStack<T>::container_type::reverse_iterator reverse_iterator;
         typedef typename MutantStack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-        iterator            begin(void);
-        const_iterator      begin(void) const;
-        iterator            end(void);
-        const_iterator      end(void) const;
+        iterator            begin(void) {return this->c.begin();}
+        const_iterator      begin(void) const {return this->c.begin();};
+        iterator            end(void) {return this->c.end();};
+        const_iterator      end(void) const {return this->c.end();};
 
-        reverse_iterator          rEnd(void);
-        const_reverse_iterator    rEnd(void) const;
-        reverse_iterator          rBegin(void);
-        const_reverse_iterator    rBegin(void) const;
+        reverse_iterator          rbegin(void) {return this->c.rbegin();};
+        const_reverse_iterator    rbegin(void) const {return this->c.rbegin();};
+        reverse_iterator          rend(void) {return this->c.rend();};
+        const_reverse_iterator    rend(void) const {return this->c.rend();};
 
 };
 
@@ -35,30 +37,5 @@ MutantStack<T, Container>::MutantStack()
 template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {}
-
-template <typename T, typename Container>
-typename MutantStack<T, Container>::iterator	begin()
-{
-	return this->c.begin();
-}
-
-template <typename T, typename Container>
-typename MutantStack<T, Container>::iterator	end()
-{
-	return this->c.end();
-}
-
-template <typename T, typename Container>
-typename MutantStack<T, Container>::const_iterator	begin() const
-{
-	return this->c.begin();
-}
-
-template <typename T, typename Container>
-typename MutantStack<T, Container>::const_iterator	end() const
-{
-	return this->c.end();
-}
-
 
 #endif
