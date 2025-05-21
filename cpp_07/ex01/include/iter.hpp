@@ -1,14 +1,13 @@
 #ifndef ITER_HPP
 # define ITER_HPP
 
-// temp1 = &tab
 # include <iostream>
 
-template <typename T>
-void	iter(T* tab, size_t size, void(*f)(T const &))
+template <typename T, typename Func>
+void iter(const T* tab, size_t size, Func f)
 {
 	for (int i = 0; i < (int)size; i++)
-		f(tab[i]);
+		f(const_cast<T&>(tab[i]));
 }
 
 #endif
