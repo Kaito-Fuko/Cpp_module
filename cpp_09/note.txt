@@ -1,0 +1,10 @@
+std::map
+std::statck<int, std::list<int>>
+std::vector
+std::deque
+
+ex00
+btc -> convert + (init * 2)
+-init -> recuper le file(data) -> data
+		+ on recuper le file(input) -> input
+-convert -> chaque ligne de l'input de trouver sa date dans data et de ressortir le resulta.
