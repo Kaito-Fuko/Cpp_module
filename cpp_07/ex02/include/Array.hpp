@@ -19,8 +19,9 @@ class Array
 		Array& operator=(const Array& other);
 		~Array();
 
-		unsigned int size();
+		unsigned int size() const;
 		T&	operator[](unsigned int i);
+		// const T&	operator[](unsigned int i);
 
 		class Exception : public std::exception
 		{
@@ -32,7 +33,7 @@ class Array
 template <typename T>
 Array<T>::Array()
 {
-	_tab(NULL);
+	_tab = NULL;
 	_size = 0;
 }
 
@@ -53,12 +54,16 @@ Array<T>::Array(const Array<T>& other): _tab(NULL), _size(0)
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
 {
-	if (this != *other)
+	if (this != &other)
 	{
 		delete[] _tab;
 		_tab = NULL;
-		for (int i = 0; i < (int)_size; i++)
+		_tab = new T[other._size]();
+		for (int i = 0; i < (int)other._size; i++)
+		{
 			_tab[i] = other._tab[i];
+			std::cout << other._tab[i];
+		}
 		_size = other._size;
 	}
 	return *this;
@@ -72,7 +77,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-unsigned int Array<T>::size()
+unsigned int Array<T>::size() const
 {
 	return (_size);
 }
@@ -84,6 +89,14 @@ T&	Array<T>::operator[](unsigned int i)
 		throw Exception();
 	return _tab[i];
 }
+
+// template <typename T>
+// const T&	Array<T>::operator[](unsigned int i)
+// {
+// 	if (i >= _size)
+// 		throw Exception();
+// 	return _tab[i];
+// }
 
 template <typename T>
 const char* Array<T>::Exception::what()const throw()
