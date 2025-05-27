@@ -11,7 +11,7 @@ int main(int, char**)
 
     b = a;
     std::cout << a.operator[](2) << std::endl;
-    std::cout << b.operator[](2) << std::endl;
+    std::cout << b.operator[](4) << std::endl;
 
     // Array<int> numbers(MAX_VAL);
     // int* mirror = new int[MAX_VAL];

@@ -21,7 +21,7 @@ class Array
 
 		unsigned int size() const;
 		T&	operator[](unsigned int i);
-		// const T&	operator[](unsigned int i);
+		T&	operator[](const unsigned int i) const;
 
 		class Exception : public std::exception
 		{
@@ -62,7 +62,6 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
 		for (int i = 0; i < (int)other._size; i++)
 		{
 			_tab[i] = other._tab[i];
-			std::cout << other._tab[i];
 		}
 		_size = other._size;
 	}
@@ -90,13 +89,13 @@ T&	Array<T>::operator[](unsigned int i)
 	return _tab[i];
 }
 
-// template <typename T>
-// const T&	Array<T>::operator[](unsigned int i)
-// {
-// 	if (i >= _size)
-// 		throw Exception();
-// 	return _tab[i];
-// }
+template <typename T>
+T&	Array<T>::operator[](const unsigned int i) const
+{
+	if (i >= _size)
+		throw Exception();
+	return _tab[i];
+}
 
 template <typename T>
 const char* Array<T>::Exception::what()const throw()
