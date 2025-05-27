@@ -1,8 +1,27 @@
-# include "../include/BitcoinExchange.hpp"
+#include "../include/BitcoinExchange.hpp"
+#include <fstream>
 
 void init(char *str)
 {
-	
+	std::ifstream data("data.csv");
+	if (!data)
+	{
+		std::cout << "error" << std::endl;
+		return ;
+	}
+
+	std::string line;
+	while (std::getline(data, line))
+	{
+		
+	}
+
+	std::ifstream input(str);
+	if (!input)
+	{
+		std::cout << "Error" << std::endl;
+		return ;
+	}
 }
 
 int main(int ac, char** av)
