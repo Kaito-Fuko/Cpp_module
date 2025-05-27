@@ -32,7 +32,7 @@ void identify(Base* p)
 		std::cout << "is B" << std::endl;
 	C* c = dynamic_cast<C*>(p);
 	if (c)
-			std::cout << "is C" << std::endl;
+		std::cout << "is C" << std::endl;
 }
 
 void identify(Base& p)
