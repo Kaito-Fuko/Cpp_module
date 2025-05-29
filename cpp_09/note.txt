@@ -5,6 +5,6 @@ std::deque
 
 ex00
 btc -> convert + (init * 2)
--init -> recuper le file(data) -> data
+-init -> recuper le file(data) -> data -> on separe data|value avec separateur
 		+ on recuper le file(input) -> input
 -convert -> chaque ligne de l'input de trouver sa date dans data et de ressortir le resulta.

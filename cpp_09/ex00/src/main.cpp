@@ -11,6 +11,8 @@ void init(char *str)
 	}
 
 	std::string line;
+	std::map<std::string, double> dt;
+
 	while (std::getline(data, line))
 	{
 		
