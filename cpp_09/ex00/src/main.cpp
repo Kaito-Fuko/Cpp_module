@@ -1,29 +1,85 @@
 #include "../include/BitcoinExchange.hpp"
+#include <iostream>
 #include <fstream>
+#include <sstream>
+#include <map>
+#include <string>
+#include <iomanip>
+
+void print(std::map<std::string, double> prices)
+{
+	std::map<std::string, double>::iterator it;
+
+    std::cout << std::fixed << std::setprecision(2);
+
+    for (it = prices.begin(); it != prices.end(); ++it) {
+        std::cout << it->first << " => " << it->second << std::endl;
+    }
+}
+
+void print2(std::map<std::string, int> prices)
+{
+	std::map<std::string, int>::iterator it;
+
+    std::cout << std::fixed << std::setprecision(2);
+
+    for (it = prices.begin(); it != prices.end(); ++it) {
+        std::cout << it->first << " | " << it->second << std::endl;
+    }
+}
+
+double toDouble(const std::string& s)
+{
+    std::stringstream ss(s);
+    double result;
+    ss >> result;
+    return result;
+}
 
 void init(char *str)
 {
-	std::ifstream data("data.csv");
-	if (!data)
+	{
+	std::ifstream file("data.csv");
+	if (!file)
 	{
 		std::cout << "error" << std::endl;
 		return ;
 	}
 
 	std::string line;
-	std::map<std::string, double> dt;
+	std::map<std::string, double> data;
 
-	while (std::getline(data, line))
+	while (std::getline(file, line))
 	{
-		
+		std::istringstream iss(line);
+		std::string priceStr;
+		std::string date;
+		if (std::getline(iss, date, ',') && std::getline(iss, priceStr))
+			data[date] = toDouble(priceStr);
 	}
-
+	// print(data);
+	}
+	
 	std::ifstream input(str);
 	if (!input)
 	{
 		std::cout << "Error" << std::endl;
 		return ;
 	}
+	
+	std::string line;
+	std::map<std::string, int> in;
+	
+	while (std::getline(input, line))
+	{
+
+		std::istringstream iss(line);
+		std::string priceStr;
+		std::string date;
+		if (std::getline(iss, date, '|') && std::getline(iss, priceStr))
+			in[date] = toDouble(priceStr);
+	}
+	print2(in);
 }
 
 int main(int ac, char** av)
