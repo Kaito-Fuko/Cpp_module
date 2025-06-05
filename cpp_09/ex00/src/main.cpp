@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <iomanip>
+#include <cctype>
 
 void print(std::map<std::string, double> prices)
 {
@@ -17,9 +18,9 @@ void print(std::map<std::string, double> prices)
     }
 }
 
-void print2(std::map<std::string, int> prices)
+void print2(std::map<std::string, std::string> prices)
 {
-	std::map<std::string, int>::iterator it;
+	std::map<std::string, std::string>::iterator it;
 
     std::cout << std::fixed << std::setprecision(2);
 
@@ -34,6 +35,17 @@ double toDouble(const std::string& s)
     double result;
     ss >> result;
     return result;
+}
+
+int check(std::string str)
+{
+	std::stringstream ss(str);
+	int res;
+	ss >> res;
+	std::cout << "str = ." << str << ". res = " << res << std::endl;
+	if (res )
+		return 1;
+	return 0;
 }
 
 void init(char *str)
@@ -58,6 +70,7 @@ void init(char *str)
 			data[date] = toDouble(priceStr);
 	}
 	// print(data);
+	file.close();
 	}
 	
 	std::ifstream input(str);
@@ -68,18 +81,23 @@ void init(char *str)
 	}
 	
 	std::string line;
-	std::map<std::string, int> in;
+	std::map<std::string, std::string> in;
 	
 	while (std::getline(input, line))
 	{
-
 		std::istringstream iss(line);
 		std::string priceStr;
 		std::string date;
 		if (std::getline(iss, date, '|') && std::getline(iss, priceStr))
-			in[date] = toDouble(priceStr);
+		{
+			if (!check(priceStr))
+				in[date] = "Error: invalid number.";
+			in[date] = priceStr;
+		}
+		// std::cout << in[date] << std::endl;
 	}
 	print2(in);
+	input.close();
 }
 
 int main(int ac, char** av)
