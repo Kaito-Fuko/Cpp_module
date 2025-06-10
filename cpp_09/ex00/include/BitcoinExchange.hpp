@@ -2,7 +2,12 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <fstream>
+# include <sstream>
 # include <map>
+# include <string>
+# include <iomanip>
+# include <cctype>
 
 class BitcoinExchange
 {
@@ -11,12 +16,11 @@ class BitcoinExchange
 
 	public:
 		BitcoinExchange();
-		BitcoinExchange(std::map<std::string, double> data);
 		BitcoinExchange(BitcoinExchange const& other);
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 		~BitcoinExchange();
 
-		void convert();
+		void convert(char* str);
 };
 
 #endif
