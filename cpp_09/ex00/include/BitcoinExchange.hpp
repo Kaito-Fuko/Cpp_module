@@ -1,6 +1,10 @@
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+# define RED "\033[0;38;5;196m"
+# define BOLD "\033[1m"
+# define END "\033[0m"
+
 # include <iostream>
 # include <fstream>
 # include <sstream>
@@ -8,6 +12,8 @@
 # include <string>
 # include <iomanip>
 # include <cctype>
+# include <algorithm>
+# include <limits>
 
 class BitcoinExchange
 {
