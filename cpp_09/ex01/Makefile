@@ -7,7 +7,7 @@ COLOR_BROWN = \033[0;33m
 COLOR_END = \033[0m
 
 # Nom du fichier exécutable
-NAME = MutantStack
+NAME = RPN
 
 # Compilateur
 CXX = c++
@@ -19,7 +19,8 @@ OBJ_DIR = obj
 INC_DIR = include
 
 # Fichiers sources
-SRC = $(SRC_DIR)/main.cpp
+SRC = $(SRC_DIR)/main.cpp\
+		$(SRC_DIR)/RPN.cpp
 
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 

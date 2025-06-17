@@ -1,55 +1,5 @@
 #include "../include/BitcoinExchange.hpp"
 
-
-
-void print2(std::map<std::string, std::string> prices)
-{
-	std::map<std::string, std::string>::iterator it;
-
-    std::cout << std::fixed << std::setprecision(2);
-
-    for (it = prices.begin(); it != prices.end(); ++it) {
-        std::cout << it->first << " | " << it->second << std::endl;
-    }
-}
-
-int check(std::string str)
-{
-	std::stringstream ss(str);
-	int res;
-	ss >> res;
-	std::cout << "str = ." << str << ". res = " << res << std::endl;
-	if (res )
-		return 1;
-	return 0;
-}
-
-// void init(char *str)
-// {
-// 	{
-// 	std::ifstream file("data.csv");
-// 	if (!file)
-// 	{
-// 		std::cout << "error" << std::endl;
-// 		return ;
-// 	}
-
-// 	std::string line;
-// 	std::map<std::string, double> data;
-
-// 	while (std::getline(file, line))
-// 	{
-// 		std::istringstream iss(line);
-// 		std::string priceStr;
-// 		std::string date;
-// 		if (std::getline(iss, date, ',') && std::getline(iss, priceStr))
-// 			data[date] = toDouble(priceStr);
-// 	}
-// 	// print(data);
-// 	file.close();
-// 	}
-// }
-
 int main(int ac, char** av)
 {
 	if (ac != 2)
