@@ -74,14 +74,14 @@ int checkDate(std::string& date, int i)
 {
 	if (date.empty())
 	{
-		std::cout << RED "Error404: Date not found." << " (line " << i << ")" << END << std::endl;
+		std::cout << RED "Error404: Date not found. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 
 	if (date.size() != 10 || std::count(date.begin(), date.end(), '-') != 2)
 	{
-		std::cout << RED "Error: Wrong format: " << BOLD << date
-			<< RED " or I want YYYY-MM-DD." << " (line " << i << ")" << END << std::endl;
+		std::cout << RED "Error: Wrong format: date = \"" << BOLD << date
+			<< RED "\" or I want YYYY-MM-DD. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 
@@ -125,7 +125,7 @@ int checkValue(std::string value, int i)
 {
 	if (value.empty())
 	{
-		std::cout << RED "Error404: Value not found." << " (line " << i << ")" << END << std::endl;
+		std::cout << RED "Error404: Value not found. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 	if (toDouble(value) > 1000 || toInt(value) < 0)
@@ -177,7 +177,8 @@ void	BitcoinExchange::convert(char* str)
 
 		if (std::count(line.begin(), line.end(), '|' ) != 1)
 		{
-			std::cout << RED "Error: Invalid Format. (line " << i << ")" END << std::endl;
+			std::cout << RED "Error: Wrong format: \"" << BOLD << line
+			<< RED "\" or I want \"YYYY-MM-DD | x.x\". (line " << i << ")" << END << std::endl;
 			continue;
 		}
 
@@ -194,15 +195,13 @@ void	BitcoinExchange::convert(char* str)
 			if (checkValue(value, i))
 				continue;
 
-			if (!_data[date])
-			{
-				std::cout << "A faire ";
-			}
-			std::cout << date << " => " << _data[date] << " = " << _data[date] * toDouble(value) << std::endl;
+			std::map<std::string, double>::iterator it = _data.lower_bound(date);
+		    if (it != _data.end())
+    		    std::cout << date << " => " << value << " = " << std::strtod(value.c_str(), NULL) * it->second << std::endl;
 		}
 
 		if (value.empty())
-			std::cout << RED "Error404: Value not found." << " (line " << i << ")"
+			std::cout << RED "Error404: Value not found. (line " << i << ")"
 				<< END << std::endl;
 	}
 }
