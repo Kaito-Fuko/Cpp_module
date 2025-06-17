@@ -38,7 +38,6 @@ BitcoinExchange::BitcoinExchange()
 
 	int i = 0;
 	std::string line;
-	// std::map<std::string, double> data;
 
 	while (std::getline(file, line))
 	{
@@ -145,6 +144,7 @@ void	BitcoinExchange::convert(char* str)
 		std::cout << RED "Error404: Data not found." END << std::endl;
 		return ;
 	}
+
 	std::ifstream file(str);
 	if (!file)
 	{
@@ -162,11 +162,15 @@ void	BitcoinExchange::convert(char* str)
 			i++;
 			continue;
 		}
+		
 		i++;
+
 		if (line.empty())
 		{
 			std::cout << "empty line. (line " << i << ")." << std::endl;
+			continue;
 		}
+		
 		std::istringstream iss(line);
 		std::string date;
 		std::string value;
@@ -196,6 +200,7 @@ void	BitcoinExchange::convert(char* str)
 			}
 			std::cout << date << " => " << _data[date] << " = " << _data[date] * toDouble(value) << std::endl;
 		}
+
 		if (value.empty())
 			std::cout << RED "Error404: Value not found." << " (line " << i << ")"
 				<< END << std::endl;
