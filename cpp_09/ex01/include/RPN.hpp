@@ -9,4 +9,18 @@
 # include <stack>
 # include <list>
 
+class RPN
+{
+	private:
+		std::stack<double> value;
+		void calculator(std::string input);
+
+	public:
+		RPN(std::string input);
+		RPN(const RPN& other);
+		RPN& operator=(const RPN& other);
+		~RPN();
+
+};
+
 #endif
