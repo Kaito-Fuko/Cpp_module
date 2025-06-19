@@ -67,7 +67,7 @@ int	Span::longestSpan() const
 
 const char* Span::AFewException::what() const throw()
 {
-	return "NON.";
+	return "Not enough element.";
 }
 
 const char* Span::TooMuchException::what() const throw()

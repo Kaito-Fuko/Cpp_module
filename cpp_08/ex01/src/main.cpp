@@ -37,17 +37,19 @@ int main()
     // 	    std::cerr << "Erreur: " << e.what() << std::endl;
     // 	}
 	// }
+	// std::vector<int>::iterator  it = myNumbers.begin();
 
 	{
-		std::vector<int> myNumbers(10000);
+		std::vector<int> myNumbers;
+		std::vector<int> myNumbers2;
 
 		for (size_t i = 0; i < myNumbers.size(); ++i)
     		myNumbers[i] = std::rand();
 
 		Span sp(10000);
-		sp.addMultiNumber(myNumbers.begin(), myNumbers.end());
 		try
 		{
+			sp.addMultiNumber(myNumbers.begin(), myNumbers2.end());
     	    std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
     	    std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     	}

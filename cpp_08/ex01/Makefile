@@ -10,7 +10,7 @@ NAME = Span
 
 # Compilateur
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 # Dossiers
 SRC_DIR = src
