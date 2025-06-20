@@ -10,10 +10,11 @@ int main(int ac, char** av)
 	try
 	{
 		RPN test(av[1]);
+		std::cout << test.getValue() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << END << '\n';
 	}
 	
 }

@@ -11,11 +11,18 @@ RPN::RPN(std::string input)
 		calculator(input);
 }
 
-int check(char c)
+RPN::RPN(const RPN& other): value(other.value)
+{}
+
+RPN& RPN::operator=(const RPN& other)
 {
-	int i;
-	std::stringstream(c) >> i;
+	if (this != &other)
+		this->value = other.value;
+	return *this;
 }
+
+RPN::~RPN()
+{}
 
 void	RPN::calculator(std::string input)
 {
@@ -30,8 +37,32 @@ void	RPN::calculator(std::string input)
 		if (std::isspace(c))
 			continue;
 		if (std::isdigit(c))
-			check(c);
+			value.push(c - '0');
+		else if (value.size() == 2 && (c == '+' || c == '-' || c == '/' || c == '*'))
+		{
+			a = value.top();
+			value.pop();
+			b = value.top();
+			value.pop();
+			if (c == '+')
+				value.push(b + a);
+			if (c == '-')
+				value.push(b - a);
+			if (c == '/' && a != 0)
+				value.push(b / a);
+			if (c == '*')
+				value.push(b * a);
+			if (c == '/' && a == 0)
+				throw std::logic_error("Error");
+		}
+		else
+			throw std::logic_error("Error: Wrong input.");
 	}
+	if (value.size() != 1)
+				throw std::logic_error("Error: Wrongs numbers of digit or operator");
 }
 
-std::stack<int, std::list<int>>;
+int RPN::getValue()
+{
+	return this->value.top();
+}

@@ -21,6 +21,7 @@ class RPN
 		RPN& operator=(const RPN& other);
 		~RPN();
 
+		int getValue();
 };
 
 #endif
