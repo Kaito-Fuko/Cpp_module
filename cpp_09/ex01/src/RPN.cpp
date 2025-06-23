@@ -4,7 +4,7 @@ RPN::RPN(std::string input)
 {
 	if (input.empty())
 	{
-		std::cout << RED "Error: empty input." END << std::endl;
+		std::cerr << RED "Error: empty input." END << std::endl;
 		return ;
 	}
 	else 

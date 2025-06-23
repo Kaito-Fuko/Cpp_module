@@ -32,7 +32,7 @@ BitcoinExchange::BitcoinExchange()
 	std::ifstream file("data.csv");
 	if (!file)
 	{
-		std::cout << RED "Error: Invalid file." END << std::endl;
+		std::cerr << RED "Error: Invalid file." END << std::endl;
 		return ;
 	}
 
@@ -74,13 +74,13 @@ int checkDate(std::string& date, int i)
 {
 	if (date.empty())
 	{
-		std::cout << RED "Error404: Date not found. (line " << i << ")" << END << std::endl;
+		std::cerr << RED "Error404: Date not found. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 
 	if (date.size() != 10 || std::count(date.begin(), date.end(), '-') != 2)
 	{
-		std::cout << RED "Error: Wrong format: date = \"" << BOLD << date
+		std::cerr << RED "Error: Wrong format: date = \"" << BOLD << date
 			<< RED "\" or I want YYYY-MM-DD. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
@@ -91,14 +91,14 @@ int checkDate(std::string& date, int i)
 
 	if (year < 0)
 	{
-		std::cout << RED "Error: Invalid year: " 
+		std::cerr << RED "Error: Invalid year: " 
 			<< BOLD << year << RED "-" << month << "-" << day << ". (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 
 	if (month < 1 || month > 12)
 	{
-		std::cout << RED "Error: Invalid month: " 
+		std::cerr << RED "Error: Invalid month: " 
 			<< year << "-" << BOLD << month << RED "-" << day << ". (line " << i << ")" << END << std::endl;
 		return 1;
 	}
@@ -125,12 +125,12 @@ int checkValue(std::string value, int i)
 {
 	if (value.empty())
 	{
-		std::cout << RED "Error404: Value not found. (line " << i << ")" << END << std::endl;
+		std::cerr << RED "Error404: Value not found. (line " << i << ")" << END << std::endl;
 		return 1;
 	}
 	if (toDouble(value) > 1000 || toInt(value) < 0)
 	{
-		std::cout << RED "Error: The number must be between 0 and 1000. Value: " BOLD
+		std::cerr << RED "Error: The number must be between 0 and 1000. Value: " BOLD
 			<< value << RED ". (line " << i << ")" << END << std::endl;
 		return 1;
 	}
@@ -141,14 +141,14 @@ void	BitcoinExchange::convert(char* str)
 {
 	if (_data.empty())
 	{
-		std::cout << RED "Error404: Data not found." END << std::endl;
+		std::cerr << RED "Error404: Data not found." END << std::endl;
 		return ;
 	}
 
 	std::ifstream file(str);
 	if (!file)
 	{
-		std::cout << RED "Error: Invalid file." END << std::endl;
+		std::cerr << RED "Error: Invalid file." END << std::endl;
 		return ;
 	}
 
@@ -167,7 +167,7 @@ void	BitcoinExchange::convert(char* str)
 
 		if (line.empty())
 		{
-			std::cout << "empty line. (line " << i << ")." << std::endl;
+			std::cerr << "empty line. (line " << i << ")." << std::endl;
 			continue;
 		}
 		
@@ -177,7 +177,7 @@ void	BitcoinExchange::convert(char* str)
 
 		if (std::count(line.begin(), line.end(), '|' ) != 1)
 		{
-			std::cout << RED "Error: Wrong format: \"" << BOLD << line
+			std::cerr << RED "Error: Wrong format: \"" << BOLD << line
 			<< RED "\" or I want \"YYYY-MM-DD | x.x\". (line " << i << ")" << END << std::endl;
 			continue;
 		}
@@ -201,7 +201,7 @@ void	BitcoinExchange::convert(char* str)
 		}
 
 		if (value.empty())
-			std::cout << RED "Error404: Value not found. (line " << i << ")"
+			std::cerr << RED "Error404: Value not found. (line " << i << ")"
 				<< END << std::endl;
 	}
 }
