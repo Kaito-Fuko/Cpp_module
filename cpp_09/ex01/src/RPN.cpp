@@ -1,5 +1,6 @@
 #include "RPN.hpp"
 
+// -------------------Constructeur------------------- //
 RPN::RPN(std::string input)
 {
 	if (input.empty())
@@ -11,9 +12,11 @@ RPN::RPN(std::string input)
 		calculator(input);
 }
 
+// ----------------Constructeur(copy)---------------- //
 RPN::RPN(const RPN& other): value(other.value)
 {}
 
+// ------------Constructeur (assignement)------------ //
 RPN& RPN::operator=(const RPN& other)
 {
 	if (this != &other)
@@ -21,9 +24,11 @@ RPN& RPN::operator=(const RPN& other)
 	return *this;
 }
 
+// -------------------Destructeur-------------------- //
 RPN::~RPN()
 {}
 
+// -----------------------Code----------------------- //
 void	RPN::calculator(std::string input)
 {
 	char c;
@@ -34,10 +39,12 @@ void	RPN::calculator(std::string input)
 	{
 		c = input[i];
 
+		//----parsing----//
 		if (std::isspace(c))
 			continue;
 		if (std::isdigit(c))
 			value.push(c - '0');
+		//----calcule----//
 		else if (value.size() == 2 && (c == '+' || c == '-' || c == '/' || c == '*'))
 		{
 			a = value.top();
@@ -62,6 +69,7 @@ void	RPN::calculator(std::string input)
 				throw std::logic_error("Error: Wrongs numbers of digit or operator");
 }
 
+// -----------------------Get------------------------ //
 int RPN::getValue()
 {
 	return this->value.top();

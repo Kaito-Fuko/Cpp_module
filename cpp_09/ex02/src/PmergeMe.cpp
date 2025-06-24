@@ -1,11 +1,25 @@
-#include "PmergeMe.hpp"
+#include "../include/PmergeMe.hpp"
 
-void PmergeMe::mergeSort(std::vector<int> array)
+PmergeMe::PmergeMe()
+{}
+
+PmergeMe::PmergeMe(int ac, char **av)
 {
-	int size = array.size();
-	if (size < 2)
-		return ;
-
-	int mid = size / 2;
-	std::vector<int> leftArray = new std::vector<int>[mid];
+	(void)ac;
+	(void)av;
 }
+
+PmergeMe::PmergeMe(const PmergeMe& other) 
+{
+	*this = other;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+{
+	if (this != &other)
+		*this = other;
+	return *this;
+}
+
+PmergeMe::~PmergeMe()
+{}
