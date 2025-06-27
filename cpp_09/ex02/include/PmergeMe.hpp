@@ -19,8 +19,8 @@ class PmergeMe
 		std::vector<int> vec;
 		std::deque<int> deq;
 
-		void fordJohnsonV(std::vector<int> &vec);
-		void fordJohnsonD(std::deque<int> &deq);
+		void fordJohnsonV(std::vector<int> &v);
+		void fordJohnsonD(std::deque<int> &d);
 
 	public:
 		PmergeMe();

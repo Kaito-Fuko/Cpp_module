@@ -19,3 +19,40 @@ ex02
 [4 56] [8 5] [51 3] [6 45]
 [56 4] [8 5] [51 3] [45 6]
 [8 51 45 56] [4 5 3 6]
+
+
+void PmergeMe::sorting()
+{
+    std::vector<int>::iterator it = vec.begin();
+    for ( ; it != vec.end(); it++)
+    {
+        if (it + 1 != vec.end() && *it > *(it + 1))
+            break;  
+    }
+    if (it == this->vec.end())
+    {
+        std::cout << ORANGE "This array is already sorted\n" RESET;
+        return ;
+    }
+
+    //time 1
+    std::time_t Vectortime_0 = std::clock(); 
+    fordJohnsonSortVector(this->vec);
+    std::time_t Vectortime_1 = std::clock(); 
+    
+    //time 2
+    std::time_t listTime_0 = std::clock();
+    fordJohnsonSortDeque(this->deq);
+    std::time_t listTime_1 = std::clock();
+    
+    std::cout << "Before";
+    this->print();
+    std::cout << "After";
+    this->print();
+    
+    std::cout << ORANGE << "Time to process a range of " << this->vec.size() << " elements with std::vector : ";
+    std::cout << 1000.0 * (Vectortime_1 - Vectortime_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+    
+    std::cout << ORANGE << "Time to process a range of " << this->deq.size() << " elements with std::list   : ";
+    std::cout << ORANGE << 1000.0 * (listTime_1 - listTime_0) / CLOCKS_PER_SEC << "ms" << RESET << std::endl;
+}
