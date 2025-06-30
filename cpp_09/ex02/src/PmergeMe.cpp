@@ -77,12 +77,12 @@ void PmergeMe::fordJohnsonV(std::vector<int> &v)
 {
 	if (v.size() < 2)
 		return;
-
+	
 	std::vector<std::pair<int, int> > pair;
 	const bool has_odd = v.size() % 2;
 	const int last = has_odd ? v.back() : 0;
 	const size_t limit = has_odd ? v.size() - 1 : v.size();
-
+		
 	//----mise en place de pair----//
 	for (size_t i = 0; i < limit; i += 2)
 	{
@@ -91,20 +91,20 @@ void PmergeMe::fordJohnsonV(std::vector<int> &v)
 		else
 			pair.push_back(std::make_pair(v[i + 1], v[i]));
 	}
-
+	
 	//----trie pair----//
 	std::sort(pair.begin(), pair.end(), pairComp);
-
+	
 	//----chaine de trie----//
 	std::vector<int> main_chain;
 	for (size_t i = 0; i < pair.size(); i++)
 		main_chain.push_back(pair[i].first);
-
+	
 	//----Jacobsthal----//
 	std::vector<size_t> jacob = generatorJacob(pair.size());
 	std::vector<bool> inserted(pair.size(), false);
-
-	//----insertion----//
+	
+	//----insertion with jacobsthal----//
 	for (size_t i = 0; i < jacob.size(); ++i)
 	{
 		const size_t pos = jacob[i];
@@ -115,7 +115,7 @@ void PmergeMe::fordJohnsonV(std::vector<int> &v)
 		main_chain.insert(it, value);
 		inserted[pos] = true;
 	}
-
+	
 	//----2 insertion----//
 	for (int i = pair.size() - 1; i >= 0; --i)
 	{
@@ -126,7 +126,7 @@ void PmergeMe::fordJohnsonV(std::vector<int> &v)
 			main_chain.insert(it, value);
 		}
 	}
-
+	
 	//----impair----//
 	if (has_odd)
 	{
@@ -146,7 +146,7 @@ void PmergeMe::fordJohnsonD(std::deque<int> &d)
 	const bool has_odd = d.size() % 2;
 	const int last = has_odd ? d.back() : 0;
 	const size_t limit = has_odd ? d.size() - 1 : d.size();
-
+	
 	for (size_t i = 0; i < limit; i += 2)
 	{
 		if (d[i] < d[i + 1])
@@ -154,16 +154,16 @@ void PmergeMe::fordJohnsonD(std::deque<int> &d)
 		else
 			pair.push_back(std::make_pair(d[i + 1], d[i]));
 	}
-
+	
 	std::sort(pair.begin(), pair.end(), pairComp);
-
+	
 	std::deque<int> main_chain;
 	for (size_t i = 0; i < pair.size(); ++i)
 		main_chain.push_back(pair[i].first);
-
+	
 	std::vector<size_t> jacob  = generatorJacob(pair.size());
 	std::vector<bool> inserted(pair.size(), false);
-
+		
 	for (size_t i = 0; i < jacob.size(); i++)
 	{
 		const size_t pos = jacob[i];
@@ -174,8 +174,8 @@ void PmergeMe::fordJohnsonD(std::deque<int> &d)
 		main_chain.insert(it, value);
 		inserted[pos];
 	}
-
-	for (int i = pair.size() - 1; i >= 0; ++i)
+	
+	for (int i = pair.size() - 1; i >= 0; --i)
 	{
 		if (!inserted[i])
 		{
@@ -190,6 +190,7 @@ void PmergeMe::fordJohnsonD(std::deque<int> &d)
 		std::deque<int>::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), last);
 		main_chain.insert(it, last);
 	}
+
 	d = main_chain;
 }
 
@@ -199,36 +200,19 @@ void	PmergeMe::timer()
 	const int iterations = 1000;
 	std::clock_t start, end;
 
+	//----Affichage----//
 	std::cout << "Before:";
 	printV();
-
-	// std::vector<int>::iterator it = vec.begin();
-	// for (; it != vec.end(); it++)
-	// {
-	// 	std::cout << *it << std::endl;
-	// 	if (it + 1 != vec.end() && *it > (*it + 1))
-	// 		break;
-	// }
-	// std::cout << *it << std::endl;
-	// if (it == this->vec.end())
-	// {
-	// 	std::cout << "After: ";
-	// 	printV();
-	// 	std::cout << "No time because this array is already sorted" << std::endl;
-	// 	return ;
-	// }
-
 	std::vector<int> copyV = vec;
 	std::deque<int> copyD = deq;
-
 	fordJohnsonV(copyV);
 	fordJohnsonD(copyD);
-	
 	std::cout << "After:  ";
 	for (size_t i = 0; i < copyV.size(); ++i)
 		std::cout << " " << copyV[i];
 	std::cout << "." << std::endl;
 
+	//----Performance vector----//
 	start = std::clock();
 	for (int i = 0; i < iterations; ++i)
 	{
@@ -238,6 +222,7 @@ void	PmergeMe::timer()
 	end = std::clock();
 	double Vtime = 1000000.0 * (end - start) / CLOCKS_PER_SEC / iterations;
 
+	//----Performance deque----//
 	start = std::clock();
 	for (int i = 0; i < iterations; ++i)
 	{

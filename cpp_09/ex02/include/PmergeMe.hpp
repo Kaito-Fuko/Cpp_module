@@ -29,7 +29,7 @@ class PmergeMe
 		PmergeMe& operator=(const PmergeMe& other);
 		~PmergeMe();
 
-		bool parseArgs(int ac, char **av);
+		// bool parseArgs(int ac, char **av);
 		void timer();
 		void printV() const;
 		void printD() const;

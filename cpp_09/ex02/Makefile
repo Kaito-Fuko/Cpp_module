@@ -11,7 +11,7 @@ NAME = PmergeMe
 
 # Compilateur
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -no-pie
 
 # Dossiers
 SRC_DIR = src
